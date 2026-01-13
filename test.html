@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פרדי ברק | אירועים בסגנון חיים שכאלה</title>
+    <meta name="description" content="הפקת אירועי יום הולדת, יום נישואין ופרישה בסגנון 'חיים שכאלה'. בהנחיית פרדי ברק.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gold: #C5A028;
+            --gold-light: #F3E5AB;
+            --burgundy: #800020;
+            --burgundy-dark: #4A0410;
+            --cream: #fcfbf8; /* קרם בהיר יותר ונקי */
+            --text: #222222; /* שחור-אפור מודרני */
+            --text-light: #555555;
+            --white: #FFFFFF;
+            --shadow: 0 15px 40px rgba(0,0,0,0.08);
+            --radius: 16px; /* פינות עגולות מודרניות */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            /* גופן טקסט רץ - נקי וקריא */
+            font-family: 'Assistant', sans-serif;
+            background-color: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            font-size: 17px;
+        }
+
+        /* גופן כותרות - בולט ומודרני */
+        h1, h2, h3, h4, .btn, .logo { 
+            font-family: 'Rubik', sans-serif; 
+            color: var(--burgundy);
+            letter-spacing: -0.5px; /* צמצום רווחים קל למראה מהודק */
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1.1rem;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), #b89320);
+            color: white;
+            box-shadow: 0 8px 20px rgba(197, 160, 40, 0.25);
+        }
+
+        .btn-gold:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 12px 30px rgba(197, 160, 40, 0.35); 
+        }
+
+        .section-padding { padding: 6rem 0; }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+        }
+
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        
+        .logo { font-size: 1.8rem; font-weight: 900; color: var(--burgundy); text-decoration: none; }
+        .logo span { color: var(--gold); }
+        
+        .nav-links { list-style: none; display: flex; gap: 2.5rem; }
+        .nav-links a { text-decoration: none; color: var(--text); font-weight: 600; transition: color 0.3s; font-size: 1.05rem; }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* Hero */
+        .hero {
+            padding: 5rem 0;
+            /* רקע מודרני נקי */
+            background: linear-gradient(to bottom, #fff 0%, var(--cream) 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 { 
+            font-size: clamp(2.5rem, 5vw, 4rem); 
+            line-height: 1.1; 
+            margin-bottom: 1.5rem; 
+            font-weight: 800;
+        }
+        
+        .hero-content p { 
+            font-size: 1.25rem; 
+            margin-bottom: 2.5rem; 
+            color: var(--text-light); 
+            font-weight: 400;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; 
+            height: 0;
+            overflow: hidden;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            background: black;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Services */
+        .services-section { background: white; }
+        .section-title { 
+            text-align: center; 
+            font-size: 2.8rem; 
+            margin-bottom: 1rem; 
+            font-weight: 800;
+        }
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--text-light);
+            font-size: 1.2rem;
+        }
+        
+        .service-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 6rem;
+        }
+
+        .service-card.reverse { direction: ltr; }
+        .service-card.reverse .service-text { direction: rtl; }
+
+        .service-text h3 { font-size: 2.2rem; margin-bottom: 1.2rem; font-weight: 700; }
+        .service-text p { margin-bottom: 1.2rem; color: var(--text-light); }
+        
+        .feature-list { list-style: none; margin-top: 2rem; }
+        .feature-list li { margin-bottom: 0.8rem; padding-right: 2rem; position: relative; font-weight: 600; }
+        .feature-list li::before { 
+            content: '✓'; 
+            color: var(--gold); 
+            position: absolute; 
+            right: 0; 
+            font-weight: 900;
+            background: rgba(197, 160, 40, 0.15);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .service-visual img {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        
+        .service-visual:hover img { transform: scale(1.02); }
+
+        /* Video Gallery */
+        .testimonials { background: var(--cream); }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .testimonial-item {
+            background: white;
+            padding: 1.2rem;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .testimonial-item:hover { transform: translateY(-5px); }
+        .testimonial-item h4 { margin-top: 1.2rem; font-size: 1.15rem; font-weight: 700; color: var(--text); }
+
+        /* Process */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            gap: 2rem;
+        }
+        
+        .step { flex: 1; padding: 2rem; background: white; border-radius: var(--radius); box-shadow: 0 4px 20px rgba(0,0,0,0.04); transition: transform 0.3s; }
+        .step:hover { transform: translateY(-5px); }
+        
+        .step-icon {
+            width: 65px; height: 65px; background: linear-gradient(135deg, var(--burgundy), var(--burgundy-dark)); color: white;
+            border-radius: 20px; display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; margin: 0 auto 1.5rem;
+            transform: rotate(-5deg);
+        }
+
+        /* Contact */
+        .contact-cta {
+            background: linear-gradient(135deg, #800020, #5c0017);
+            color: white;
+            text-align: center;
+            padding: 6rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* אלמנט דקורטיבי ברקע */
+        .contact-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .contact-cta h2 { color: white; margin-bottom: 1rem; }
+        .contact-cta p { color: rgba(255,255,255,0.8); }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.1);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        input {
+            width: 100%;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            border: none;
+            background: rgba(255,255,255,0.9);
+            font-family: 'Assistant', sans-serif;
+            font-size: 1rem;
+        }
+
+        /* Sticky WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: #25d366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            transition: all 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
+
+        /* Mobile */
+        @media (max-width: 900px) {
+            .hero-grid, .service-card { grid-template-columns: 1fr; gap: 2.5rem; }
+            .service-card.reverse { direction: rtl; }
+            .hero-content { text-align: center; order: 2; }
+            .hero-visual { order: 1; }
+            .nav-links { display: none; } 
+            .process-steps { flex-direction: column; }
+            .section-title { font-size: 2.2rem; }
+            .step { margin-bottom: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">🎬 פרדי <span>ברק</span></a>
+                <ul class="nav-links">
+                    <li><a href="#about">אודות</a></li>
+                    <li><a href="#birthdays">ימי הולדת</a></li>
+                    <li><a href="#retirement">פרישה</a></li>
+                    <li><a href="#testimonials">המלצות</a></li>
+                </ul>
+                <a href="tel:0528818148" class="btn btn-gold" style="padding: 0.7rem 1.8rem; border-radius: 12px;">052-8818148 📞</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <h1>חוגגים את החיים <br>בסגנון <span style="color:var(--gold)">"חיים שכאלה"</span></h1>
+                    <p>מחפשים דרך מקורית ומרגשת לחגוג יום הולדת עגול, יום נישואין או פרישה? הגעתם למקום הנכון.<br>
+                    אירוע שכולו רגש, נוסטלגיה ושמחה, המשלב תחקיר מעמיק, סרט דוקומנטרי והנחיה מוזיקלית סוחפת.</p>
+                    <a href="#contact" class="btn btn-gold">שריינו תאריך לאירוע</a>
+                </div>
+                <div class="hero-visual">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/ymKBGXQFwY0" title="פרדי ברק סרטון תדמית" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p style="text-align:center; margin-top: 1rem; font-size: 0.95rem; font-weight: 600; color: var(--burgundy);">☝️ צפו בטעימה מהאירועים שלנו</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section section-padding" id="birthdays">
+        <div class="container">
+            <h2 class="section-title">איך נחגוג את האירוע שלכם?</h2>
+            <p class="section-subtitle">פתרונות מותאמים אישית לכל שלב בחיים</p>
+
+            <div class="service-card">
+                <div class="service-text">
+                    <h3>יום הולדת ויום נישואין בסגנון "חיים שכאלה"</h3>
+                    <p>יום הולדת עגול או חתונת זהב הם הזדמנות נדירה לעצור ולהוקיר תודה. האירוע מפגיש את בני המשפחה והחברים עם סיפור חייו של האדם לו אנו חוגגים בצורה המרגשת ביותר.</p>
+                    <p>במהלך הערב פרדי משלב אנקדוטות, סיפורים קצרים וחוויות מתחנות חייו של בעל השמחה: ילדות, צבא, לימודים, קריירה ומשפחה.</p>
+                    <ul class="feature-list">
+                        <li>תחקיר עומק: איסוף חומרים, תמונות וראיונות מקדימים.</li>
+                        <li>מצגת וסרטי וידאו: שזורים במהלך האירוע על מסך ענק.</li>
+                        <li>שירה בציבור: פרדי מוביל שירה אותנטית ומלווה בגיטרה.</li>
+                        <li>הנחיה רגישה: ניהול הערב בחן, הומור ומקצועיות.</li>
+                    </ul>
+                </div>
+                <div class="service-visual">
+                    <img src="https://images.unsplash.com/photo-1530103862676-de3c9a59af38?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="יום הולדת 70">
+                </div>
+            </div>
+
+            <div class="service-card reverse" id="retirement">
+                <div class="service-text">
+                    <h3>אירוע פרישה מכובד ומרגש</h3>
+                    <p>אירוע פרישה הוא רגע השיא של הקריירה. אנו מעלים ומזכירים תחנות חשובות מתקופת השירות והעבודה, דרך סיפורים מרתקים המשקפים את התרומה לארגון.</p>
+                    <p>הדבר החשוב מכל הוא התוכן - קולגות וחברים מספרים איך היה לעבוד במחיצתו, ובני המשפחה מציגים את הזווית האישית שליוותה את שנות העבודה.</p>
+                    <ul class="feature-list">
+                        <li>ראיונות עם קולגות: חברים לעבודה מספרים על התמורות שחלו לאורך השנים.</li>
+                        <li>הזווית המשפחתית: הנישואין, הילדים והנכדים שממלאים כעת את חייו.</li>
+                        <li>תיעוד כפול: האירוע מצולם ב-2 מצלמות וידאו לעריכת סרט מזכרת!</li>
+                    </ul>
+                </div>
+                <div class="service-visual">
+                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="אירוע פרישה">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section-padding" style="background-color: #f7f3e8;">
+        <div class="container">
+            <h2 class="section-title">איך זה עובד?</h2>
+            <div class="process-steps" style="margin-top: 3rem;">
+                <div class="step">
+                    <div class="step-icon">🔍</div>
+                    <h4>תחקיר ואיתור</h4>
+                    <p>יציאה לשטח, ראיונות עם דמויות מפתח מהעבר ואיסוף מוצגים וצילומים נדירים.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">📝</div>
+                    <h4>כתיבת תסריט</h4>
+                    <p>עיבוד כל החומרים לסיפור חיים מרתק, עריכת קטעי הוידאו ובניית ליין-אפ לאירוע.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">🎤</div>
+                    <h4>האירוע</h4>
+                    <p>הנחיה מקצועית של פרדי ברק, שילוב סרטונים, סיפורים ושירה בציבור מרגשת.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">🎥</div>
+                    <h4>סרט למזכרת</h4>
+                    <p>האירוע מצולם בשתי מצלמות וידאו מהם יופק סרט ערוך למזכרת נצחית.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials section-padding" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">לקוחות ממליצים</h2>
+            <p style="text-align: center; margin-bottom: 3rem; font-size: 1.2rem; color: var(--text-light);">אל תאמינו רק לנו - צפו במה שיש ללקוחות שלנו להגיד</p>
+            
+            <div class="video-grid">
+                <div class="testimonial-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/lx3CAqnjOBw" title="המלצה 1" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h4>משפחת גולן חוגגת יום הולדת 70</h4>
+                </div>
+                <div class="testimonial-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/yFBOCBm03C4" title="המלצה 2" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h4>ערב מרגש לציון יום נישואין</h4>
+                </div>
+                <div class="testimonial-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/gUoIZkXL_4o" title="המלצה 3" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h4>אירוע פרישה חגיגי</h4>
+                </div>
+                 <div class="testimonial-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/ZXZmMYU6PeE" title="המלצה 4" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h4>המלצה חמה מהלב</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-cta" id="contact">
+        <div class="container">
+            <h2>מוכנים לחגוג את החיים?</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 3rem;">בואו ניצור יחד אירוע שלא יישכח לעולם.</p>
+            
+            <div class="form-container">
+                <form onsubmit="event.preventDefault(); alert('הטופס נשלח בהצלחה!');">
+                    <input type="text" placeholder="שם מלא" required>
+                    <input type="tel" placeholder="טלפון לתיאום" required>
+                    <button type="submit" class="btn btn-gold" style="width: 100%; border-radius: 12px; font-size: 1.2rem;">חזרו אלי לתיאום פגישה</button>
+                </form>
+            </div>
+            
+            <p style="margin-top: 2.5rem; font-size: 1.2rem;">או חייגו ישירות: <a href="tel:0528818148" style="color:white; font-weight:800; text-decoration: underline;">052-8818148</a></p>
+        </div>
+    </section>
+
+    <footer style="background: #1a1a1a; color: #888; padding: 3rem 0; text-align: center;">
+        <div class="container">
+            <div style="font-size: 1.5rem; font-weight: bold; color: white; margin-bottom: 1rem;">🎬 פרדי ברק</div>
+            <p>© 2025 כל הזכויות שמורות - הפקת אירועי חיים שכאלה.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/972528818148" class="whatsapp-float" target="_blank">
+        <svg viewBox="0 0 32 32" style="fill:white; width: 38px; height: 38px;"><path d="M16.7,3.3c-7.2,0-13,5.8-13,13c0,2.3,0.6,4.5,1.7,6.4L4.1,28l5.5-1.4c1.8,1,3.9,1.5,6.1,1.5c7.2,0,13-5.8,13-13 S23.9,3.3,16.7,3.3z M24,20.4c-0.2,0.7-1.3,1.3-1.8,1.4s-0.9,0-2.6-0.7c-0.6-0.3-1.5-0.8-2.6-1.9c-1.2-1.1-2.9-3.2-3.1-4.2 s0.1-1.6,0.5-2.1c0.3-0.4,0.7-0.9,1.1-1.1c0.4-0.2,0.6-0.2,0.8-0.2s0.4,0,0.6,0c0.2,0,0.5,0.1,0.7,0.7c0.2,0.5,0.9,2.1,0.9,2.3 s0.1,0.4-0.1,0.6s-0.3,0.4-0.5,0.7c-0.2,0.2-0.5,0.5-0.7,0.7c-0.2,0.2-0.5,0.4-0.2,0.9c0.3,0.5,1.3,2.1,2.8,3.4 c1.9,1.7,3.1,2.2,3.6,2.5c0.5,0.2,0.7,0.2,1-0.1c0.3-0.4,1.1-1.3,1.4-1.8c0.3-0.5,0.6-0.4,1-0.3c0.4,0.2,2.7,1.3,3.1,1.5 s0.8,0.3,0.9,0.5C24.4,19.2,24.3,19.7,24,20.4z"/></svg>
+    </a>
+
+</body>
+</html>
