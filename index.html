@@ -1124,6 +1124,106 @@
           flex-direction: column;
         }
       }
+
+      /* Slide-in Contact Popup */
+      .contact-popup {
+        position: fixed;
+        left: -400px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 350px;
+        background: linear-gradient(
+          135deg,
+          var(--burgundy) 0%,
+          var(--burgundy-dark) 100%
+        );
+        border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+        box-shadow: 5px 0 30px rgba(0, 0, 0, 0.25);
+        z-index: 998;
+        transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 2rem;
+        color: white;
+      }
+
+      .contact-popup.show {
+        left: 0;
+      }
+
+      .contact-popup-close {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(255, 255, 255, 0.15);
+        border: none;
+        color: white;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.25s ease;
+      }
+
+      .contact-popup-close:hover {
+        background: rgba(255, 255, 255, 0.25);
+      }
+
+      .contact-popup h3 {
+        font-family: "Secular One", sans-serif;
+        color: white;
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        text-align: center;
+      }
+
+      .contact-popup > p {
+        font-size: 0.95rem;
+        opacity: 0.9;
+        text-align: center;
+        margin-bottom: 1.25rem;
+      }
+
+      .contact-popup-form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .contact-popup-form input {
+        padding: 0.9rem 1rem;
+        border-radius: 8px;
+        border: none;
+        font-size: 0.95rem;
+        font-family: "Rubik", sans-serif;
+        background: rgba(255, 255, 255, 0.95);
+      }
+
+      .contact-popup-form input:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(197, 160, 40, 0.4);
+      }
+
+      .contact-popup-form input::placeholder {
+        color: #777;
+      }
+
+      .contact-popup-form button {
+        margin-top: 0.25rem;
+      }
+
+      @media (max-width: 600px) {
+        .contact-popup {
+          width: 280px;
+          padding: 1.5rem;
+        }
+
+        .contact-popup h3 {
+          font-size: 1.2rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -1481,7 +1581,7 @@
                 loading="lazy"
               ></iframe>
             </div>
-            <h4> אירוע פרישה המלצה - יואב אפלבוים</h4>
+            <h4>אירוע פרישה המלצה - יואב אפלבוים</h4>
           </div>
           <div class="testimonial-item">
             <div class="video-wrapper">
@@ -1493,7 +1593,7 @@
                 loading="lazy"
               ></iframe>
             </div>
-            <h4>אהוד מנור ז"ל על העבודה עם פרדי ברק </h4>
+            <h4>אהוד מנור ז"ל על העבודה עם פרדי ברק</h4>
           </div>
           <div class="testimonial-item">
             <div class="video-wrapper">
@@ -1628,6 +1728,27 @@
       </svg>
     </a>
 
+    <!-- Slide-in Contact Popup -->
+    <div class="contact-popup" id="contactPopup">
+      <button
+        class="contact-popup-close"
+        onclick="closeContactPopup()"
+        aria-label="סגור"
+      >
+        ×
+      </button>
+      <h3>📞 רוצים לשמוע עוד?</h3>
+      <p>השאירו פרטים ואחזור אליכם בהקדם</p>
+      <form
+        class="contact-popup-form"
+        onsubmit="event.preventDefault(); handlePopupFormSubmit(this);"
+      >
+        <input type="text" name="name" placeholder="שם מלא" required />
+        <input type="tel" name="phone" placeholder="טלפון" required />
+        <button type="submit" class="btn btn-gold">צרו איתי קשר ⟵</button>
+      </form>
+    </div>
+
     <script>
       // Header scroll effect
       const header = document.getElementById("header");
@@ -1685,6 +1806,39 @@
           }
         });
       });
+
+      // Slide-in Contact Popup
+      let popupShown = false;
+      let popupDismissed =
+        sessionStorage.getItem("contactPopupDismissed") === "true";
+
+      window.addEventListener("scroll", () => {
+        if (!popupShown && !popupDismissed && window.scrollY > 300) {
+          document.getElementById("contactPopup").classList.add("show");
+          popupShown = true;
+        }
+      });
+
+      function closeContactPopup() {
+        document.getElementById("contactPopup").classList.remove("show");
+        popupDismissed = true;
+        sessionStorage.setItem("contactPopupDismissed", "true");
+      }
+
+      function handlePopupFormSubmit(form) {
+        const formData = new FormData(form);
+        const name = formData.get("name");
+        const phone = formData.get("phone");
+
+        const message = `שלום, שמי ${name}.\nאשמח לשמוע פרטים על הפקת אירוע.\nטלפון: ${phone}`;
+        const whatsappUrl = `https://wa.me/972528818148?text=${encodeURIComponent(
+          message
+        )}`;
+
+        closeContactPopup();
+        window.open(whatsappUrl, "_blank");
+        form.reset();
+      }
     </script>
   </body>
 </html>
