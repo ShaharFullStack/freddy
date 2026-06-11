@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="assets/site.webmanifest">
+<meta name="theme-color" content="#FCF9EA">
+<title>חיים שכאלה | אירועי פרישה, קידום והוקרה לתאגידים | ברק הפקות</title>
+<meta name="description" content="הפקה והנחיית אירועי פרישה, קידום והוקרה לתאגידים וארגונים גדולים. תחקיר עומק, סרט מרגש, שירה בציבור והנחיה מקצועית. מעל 20 שנות ניסיון.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* ---- צבעים ---- */
+    --cream:#FCF9EA; --teal:#BADFDB; --coral:#FFA4A4; --coral-light:#FFBDBD;
+    --ink:#241F1C; --ink-soft:#4A413B; --rose:#E06B6B; --rose-deep:#C5474A;
+    --teal-deep:#5FA39C; --paper:#FFFEF8; --shadow:rgba(36,31,28,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{overflow-x:hidden}
+  html{scroll-behavior:smooth}
+  body{font-family:'Heebo',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.serif{font-family:'Rubik',sans-serif}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 20px}
+
+  /* ===================== NAV (mobile-first) ===================== */
+  nav{position:fixed;top:0;right:0;left:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+      padding:14px 18px;background:rgba(252,249,234,.9);backdrop-filter:blur(12px);border-bottom:1px solid rgba(36,31,28,.07);transition:padding .3s}
+  nav.scrolled{padding:9px 18px;box-shadow:0 6px 26px -16px var(--shadow)}
+  .brand{font-family:'Rubik';font-weight:900;font-size:1.25rem;display:flex;align-items:center;gap:9px;line-height:1}
+  .brand-logo{width:42px;height:42px;object-fit:contain;flex-shrink:0}
+  .brand small{display:block;font-family:'Heebo';font-weight:400;font-size:.58rem;letter-spacing:2px;color:var(--ink-soft);margin-top:2px}
+  .burger{display:flex;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;z-index:101}
+  .burger span{width:25px;height:2px;background:var(--ink);transition:.3s;border-radius:2px}
+  .burger.x span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger.x span:nth-child(2){opacity:0}
+  .burger.x span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .nav-links{position:fixed;inset:0 0 0 24%;background:var(--ink);flex-direction:column;justify-content:center;gap:30px;display:flex;
+             transform:translateX(100%);transition:transform .38s cubic-bezier(.6,.05,.2,1);z-index:100;padding:0 30px}
+  .nav-links.open{transform:translateX(0)}
+  .nav-links a{color:var(--cream);font-size:1.3rem;font-weight:500}
+  .nav-links .nav-cta{background:var(--rose-deep);color:#fff;padding:12px 22px;border-radius:40px;text-align:center;width:fit-content}
+
+  /* ===================== HERO (mobile-first) ===================== */
+  header.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;overflow:hidden;color:#fff}
+  .hero-media{position:absolute;inset:0;z-index:0;overflow:hidden}
+  .hero-media .bg{position:absolute;top:-12%;left:0;width:100%;height:124%;object-fit:cover;will-change:transform}
+  .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(36,31,28,.5) 0%,rgba(36,31,28,.35) 40%,rgba(36,31,28,.82) 100%)}
+  .hero-inner{position:relative;z-index:2;padding:120px 0 56px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:500;letter-spacing:2px;background:rgba(255,255,255,.14);
+           padding:7px 14px;border-radius:40px;border:1px solid rgba(255,255,255,.25);margin-bottom:20px;backdrop-filter:blur(4px)}
+  .eyebrow .pulse{width:7px;height:7px;border-radius:50%;background:var(--coral-light);position:relative}
+  .eyebrow .pulse::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1px solid var(--coral-light);animation:ping 2s infinite}
+  @keyframes ping{0%{transform:scale(.6);opacity:1}100%{transform:scale(1.8);opacity:0}}
+  h1.hero-title{font-size:clamp(2.1rem,8.5vw,5rem);font-weight:900;line-height:1.08;letter-spacing:-1px;margin-bottom:18px;text-shadow:0 2px 24px rgba(0,0,0,.3)}
+  h1.hero-title .em{color:var(--coral-light)}
+  .hero-sub{font-size:clamp(1rem,4.4vw,1.3rem);max-width:620px;margin-bottom:28px;font-weight:300;color:rgba(255,255,255,.92)}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 26px;border-radius:46px;font-weight:500;font-size:1rem;cursor:pointer;border:none;transition:transform .2s,box-shadow .2s,background .2s;text-align:center}
+  .btn-primary{background:var(--rose-deep);color:#fff;box-shadow:0 14px 30px -12px rgba(197,71,74,.8)}
+  .btn-primary:hover{transform:translateY(-3px)}
+  .btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.6);backdrop-filter:blur(4px)}
+  .btn-ghost:hover{background:#fff;color:var(--ink)}
+  .hero-meta{display:flex;gap:22px;margin-top:34px;flex-wrap:wrap}
+  .hero-meta .n{font-family:'Rubik';font-size:1.9rem;font-weight:900;line-height:1}
+  .hero-meta .l{font-size:.76rem;color:rgba(255,255,255,.8);margin-top:3px}
+
+  /* ===================== SECTION SHELL ===================== */
+  section{padding:64px 0;position:relative}
+  .kicker{font-size:.74rem;font-weight:700;letter-spacing:3px;color:var(--teal-deep);margin-bottom:12px}
+  h2.sec-title{font-size:clamp(1.7rem,6.4vw,3rem);font-weight:900;line-height:1.15;letter-spacing:-.5px}
+  .sec-lead{font-size:1.04rem;color:var(--ink-soft);margin-top:14px;font-weight:300}
+  .sec-head{max-width:680px;margin-bottom:38px}
+
+  /* ===================== ABOUT ===================== */
+  .about{background:var(--paper)}
+  .about-grid{display:flex;flex-direction:column;gap:30px}
+  .about-text p{font-size:1.05rem;color:var(--ink-soft);margin-bottom:15px}
+  .about-text p strong{color:var(--ink);font-weight:700}
+  .about-media{position:relative;border-radius:22px;overflow:hidden;height:260px;box-shadow:0 26px 50px -28px var(--shadow)}
+  .about-media .bg{position:absolute;top:-14%;left:0;width:100%;height:128%;object-fit:cover;will-change:transform}
+  .about-media .tag{position:absolute;bottom:0;right:0;left:0;z-index:2;background:linear-gradient(0deg,rgba(36,31,28,.78),transparent);color:#fff;
+                    font-family:'Rubik';font-size:1.15rem;font-weight:700;padding:30px 22px 18px}
+
+  /* ===================== EVENTS ===================== */
+  .events-grid{display:flex;flex-direction:column;gap:18px}
+  .ev-card{background:var(--paper);border-radius:20px;overflow:hidden;border:1px solid rgba(36,31,28,.06);box-shadow:0 16px 40px -28px var(--shadow)}
+  .ev-img{position:relative;height:180px;overflow:hidden}
+  .ev-img .bg{position:absolute;inset:-12% 0;background-size:cover;background-position:center;will-change:transform}
+  .ev-img .bg{position:absolute;top:-12%;left:0;width:100%;height:124%;object-fit:cover;will-change:transform}
+  .ev-img .badge{position:absolute;top:14px;right:14px;z-index:2;background:rgba(252,249,234,.95);font-size:.72rem;font-weight:700;letter-spacing:1px;padding:6px 13px;border-radius:30px;color:var(--rose-deep)}
+  .ev-body{padding:24px}
+  .ev-body h3{font-size:1.3rem;font-weight:700;margin-bottom:8px}
+  .ev-body p{font-size:.96rem;color:var(--ink-soft)}
+
+  /* ===================== PROCESS ===================== */
+  .process{background:var(--ink);color:var(--cream)}
+  .process .kicker{color:var(--coral)}
+  .process h2.sec-title{color:var(--cream)}
+  .process .sec-lead{color:rgba(252,249,234,.72)}
+  .steps{display:flex;flex-direction:column;gap:0;margin-top:8px}
+  .step{padding:24px 0 24px 0;border-top:1px solid rgba(252,249,234,.16);display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start}
+  .step .num{font-family:'Rubik';font-size:2rem;font-weight:900;color:var(--coral);line-height:1;opacity:.85}
+  .step h3{font-size:1.18rem;font-weight:700;margin-bottom:5px;color:var(--cream)}
+  .step p{font-size:.94rem;color:rgba(252,249,234,.68)}
+
+  /* ===================== GALLERY ===================== */
+  .gallery{background:var(--cream)}
+  .gal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:8px;align-items:start}
+  .gal-item{position:relative;overflow:hidden;border-radius:18px;background:var(--paper);border:1px solid rgba(36,31,28,.08);
+            box-shadow:0 20px 42px -28px rgba(36,31,28,.45);isolation:isolate}
+  .gal-item:first-child,.gal-item:last-child{grid-column:1/-1}
+  .gal-item:nth-child(3){margin-top:28px}
+  .gal-item .bg{width:100%;height:auto;display:block;transition:transform .55s cubic-bezier(.16,1,.3,1)}
+  .gal-item::after{content:"";position:absolute;inset:auto 0 0;height:54%;z-index:1;pointer-events:none;
+                   background:linear-gradient(0deg,rgba(36,31,28,.72),transparent)}
+  .gal-item:hover .bg{transform:scale(1.035)}
+  .gal-label{position:absolute;right:14px;bottom:12px;left:14px;z-index:2;color:#fff;font-size:.82rem;font-weight:500;
+             text-shadow:0 1px 10px rgba(0,0,0,.45)}
+
+  /* ===================== INCLUDED ===================== */
+  .incl-grid{display:flex;flex-direction:column;gap:14px}
+  .incl{display:flex;gap:14px;padding:22px;background:var(--paper);border-radius:16px;border:1px solid rgba(36,31,28,.06)}
+  .incl .check{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:var(--teal);display:grid;place-items:center;color:var(--ink)}
+  .incl .check svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .incl h3{font-size:1.05rem;font-weight:700;margin-bottom:3px}
+  .incl p{font-size:.9rem;color:var(--ink-soft)}
+
+  /* ===================== TRUST ===================== */
+  .trust{background:var(--ink);color:var(--cream);overflow:hidden}
+  .trust-grid{display:flex;flex-direction:column;gap:26px}
+  .trust-media{position:relative;border-radius:20px;overflow:hidden;height:230px}
+  .trust-media .bg{position:absolute;top:-14%;left:0;width:100%;height:128%;object-fit:cover;will-change:transform}
+  .trust-media::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(36,31,28,.55),transparent 60%)}
+  .trust-text h2{color:var(--cream);font-size:clamp(1.6rem,6vw,2.5rem);font-weight:900;line-height:1.2;margin-bottom:16px}
+  .trust-text p{font-size:1.02rem;color:rgba(252,249,234,.78);margin-bottom:14px}
+  .trust .kicker{color:var(--coral)}
+
+  /* ===================== TESTIMONIALS ===================== */
+  .tst-grid{display:flex;flex-direction:column;gap:16px}
+  .tst{background:var(--paper);border-radius:18px;padding:26px;border:1px solid rgba(36,31,28,.06)}
+  .tst .stars{color:var(--rose);letter-spacing:2px;margin-bottom:10px}
+  .tst p{font-size:.98rem;color:var(--ink-soft);font-style:italic;margin-bottom:16px}
+  .tst .who{display:flex;align-items:center;gap:11px}
+  .tst .av{width:40px;height:40px;border-radius:50%;background:var(--coral-light);display:grid;place-items:center;font-weight:700;color:var(--ink)}
+  .tst .who b{font-weight:700;font-size:.92rem}
+  .tst .who small{display:block;color:var(--ink-soft);font-size:.8rem}
+  .ph-note{font-size:.78rem;color:var(--ink-soft);opacity:.7;margin-top:16px;text-align:center}
+
+  /* ===================== CONTACT ===================== */
+  .contact{background:var(--ink);color:var(--cream)}
+  .contact-grid{display:flex;flex-direction:column;gap:34px}
+  .contact .kicker{color:var(--coral)}
+  .contact h2{color:var(--cream);font-size:clamp(1.7rem,6.4vw,3rem);font-weight:900;line-height:1.15;margin-bottom:14px}
+  .contact .lead{color:rgba(252,249,234,.74);font-size:1.04rem;margin-bottom:24px}
+  .contact-info a{display:flex;align-items:center;gap:13px;padding:14px 0;border-bottom:1px solid rgba(252,249,234,.13);font-size:1rem}
+  .contact-info a:active{color:var(--coral)}
+  .contact-info .ci-ico{width:42px;height:42px;border-radius:11px;background:rgba(252,249,234,.08);display:grid;place-items:center;font-size:1.1rem;flex-shrink:0}
+  form{background:var(--paper);border-radius:22px;padding:28px;color:var(--ink)}
+  form h3{font-size:1.3rem;font-weight:700;margin-bottom:5px}
+  form .fsub{font-size:.9rem;color:var(--ink-soft);margin-bottom:20px}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-size:.84rem;font-weight:500;margin-bottom:5px}
+  .field input,.field textarea{width:100%;padding:13px 15px;border:1.5px solid rgba(36,31,28,.15);border-radius:11px;font-family:'Heebo';font-size:1rem;background:var(--cream)}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--rose)}
+  .field textarea{resize:vertical;min-height:80px}
+  form .btn-primary{width:100%;margin-top:6px}
+  .form-ok{display:none;background:var(--teal);color:var(--ink);padding:13px;border-radius:11px;text-align:center;font-weight:500;margin-top:12px}
+
+  /* ===================== FOOTER ===================== */
+  footer{background:var(--cream);padding:38px 0;text-align:center}
+  footer .brand{justify-content:center;margin-bottom:12px}
+  footer p{font-size:.83rem;color:var(--ink-soft)}
+  footer .made{margin-top:6px;opacity:.6;font-size:.76rem}
+
+  /* ===================== FLOATING WHATSAPP ===================== */
+  .wa-float{position:fixed;bottom:20px;left:20px;z-index:90;display:flex;align-items:center;background:#25D366;color:#fff;border-radius:50px;box-shadow:0 14px 30px -10px rgba(37,211,102,.6);overflow:hidden}
+  .wa-float .wa-ico{width:56px;height:56px;display:grid;place-items:center;flex-shrink:0}
+  .wa-float .wa-ico svg{width:28px;height:28px}
+  .wa-float .wa-txt{max-width:0;white-space:nowrap;overflow:hidden;font-weight:600;font-size:.95rem;transition:max-width .35s,padding .35s}
+
+  /* ===================== REVEAL (directional) ===================== */
+  .reveal{opacity:0;transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);will-change:transform,opacity}
+  .reveal.r-right{transform:translateX(70px)}
+  .reveal.r-left{transform:translateX(-70px)}
+  .reveal.r-up{transform:translateY(64px)}
+  .reveal.r-down{transform:translateY(-64px)}
+  .reveal.r-scale{transform:scale(.88)}
+  .reveal.r-tilt{transform:translateY(50px) rotate(-2.5deg)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ===================== TABLET ===================== */
+  @media(min-width:768px){
+    .wrap{padding:0 32px}
+    section{padding:90px 0}
+    .hero-inner{padding:150px 0 70px}
+    .hero-cta{gap:16px}
+    .hero-meta{gap:40px;margin-top:50px}
+    .hero-meta .n{font-size:2.4rem}
+    .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+    .about-media{height:380px}
+    .events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .ev-img{height:200px}
+    .step{grid-template-columns:auto 1fr;gap:24px;padding:30px 0}
+    .step .num{font-size:2.6rem}
+    .gal-grid{grid-template-columns:repeat(12,minmax(0,1fr));gap:18px}
+    .gal-item:first-child{grid-column:span 7}
+    .gal-item:nth-child(2){grid-column:span 5;margin-top:54px}
+    .gal-item:nth-child(3){grid-column:span 4;margin-top:-44px}
+    .gal-item:last-child{grid-column:span 8;margin-top:18px}
+    .gal-label{right:18px;bottom:15px;left:18px;font-size:.9rem}
+    .incl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .trust-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+    .trust-media{height:330px}
+    .tst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+    form{padding:36px}
+    .wa-float .wa-txt{max-width:0}
+    .wa-float:hover .wa-txt{max-width:210px;padding-left:22px}
+    .wa-float{bottom:26px;left:26px}
+  }
+  /* ===================== DESKTOP ===================== */
+  @media(min-width:1024px){
+    nav{padding:18px 34px}
+    nav.scrolled{padding:12px 34px}
+    .brand{font-size:1.5rem}
+    .brand small{font-size:.62rem;letter-spacing:3px}
+    .burger{display:none}
+    .nav-links{position:static;inset:auto;flex-direction:row;background:none;transform:none;justify-content:flex-end;align-items:center;gap:30px;padding:0;width:auto}
+    .nav-links a{color:var(--ink);font-size:.95rem;font-weight:500}
+    .nav-links .nav-cta{background:var(--ink);color:var(--cream);padding:9px 20px}
+    .nav-links .nav-cta:hover{background:var(--rose-deep)}
+    section{padding:104px 0}
+    .incl-grid{grid-template-columns:repeat(3,1fr)}
+    .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+    .step{border-top:2px solid rgba(252,249,234,.16);border-right:none;padding:30px 16px 0;display:block;position:relative}
+    .step .num{display:block;margin-bottom:10px}
+  }
+  /* ===================== ACCESSIBILITY: reduce motion ===================== */
+  @media(prefers-reduced-motion:reduce){
+    .reveal{transition:opacity .4s ease!important;transform:none!important}
+    .reveal.in{transform:none!important}
+    html{scroll-behavior:auto}
+    .candle,.eyebrow .pulse::after{animation:none!important}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#top" class="brand"><img class="brand-logo" src="assets/images/logo.png" alt=""><span>חיים שכאלה<small>ברק הפקות · פרדי ברק</small></span></a>
+  <button class="burger" id="burger" aria-label="תפריט"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="navlinks">
+    <a href="#about">מה זה</a>
+    <a href="#events">סוגי אירועים</a>
+    <a href="#process">איך זה עובד</a>
+    <a href="#trust">למה פרדי</a>
+    <a href="#contact" class="nav-cta">לשיחת ייעוץ</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-media"><img class="bg parallax" data-speed="26" src="assets/images/image4.png" alt="אירוע חברה" loading="eager"></div>
+  <div class="wrap hero-inner">
+    <h1 class="hero-title reveal r-up">כשמגיע הרגע להגיד </br> <span class="em">תודה</span> על כל השנים</h1>
+    <p class="hero-sub reveal r-up">הפקה והנחיה מלאה של אירוע שמעניק כבוד אמיתי לעובד הוותיק, ומשדר לכל מי שנשאר בארגון איך נראית הערכה. פרדי לוקח על עצמו את התחקיר, הכתיבה, הצילום וההנחיה, כך שלכם נשאר רק ליהנות מהערב.</p>
+    <div class="hero-cta reveal r-up">
+      <a href="#contact" class="btn btn-primary">לקבלת הצעת מחיר </a>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-text reveal r-right">
+      <p class="kicker">מה זה "חיים שכאלה"</p>
+      <h2 class="sec-title" style="margin-bottom:18px">אירוע שבו כל המשתתפים מרגישים כמו משפחה</h2>
+      <p>מעל 20 שנה אני מלווה ארגונים, מוסדות, רשויות וחברות ביצירת תוכן לאירועים משמעותיים. ב"חיים שכאלה" אני <strong>מפיק ומנחה</strong> אירועי פרישה, קידום בתפקיד וימי הוקרה בצורה חמה, אישית ומכובדת, עם אחריות מלאה על כל שלב בהפקה.</p>
+      <p>בכל אירוע משולבים סיפורים אישיים מהלב, וידאו מרגש, מצגת ושירי ארץ ישראל בשירה בציבור. התוצאה היא חוויה בלתי נשכחת שמעניקה כבוד לעובד, וגם מחזקת את תחושת השייכות של כל מי שיושב באולם.</p>
+    </div>
+    <div class="about-media reveal r-left">
+      <img class="bg parallax" data-speed="20" src="assets/images/freddy2.png" alt="הנחיית אירוע" loading="lazy">
+      <div class="tag">הנחיה חמה ומקצועית, מהרגע הראשון ועד אחרון השירים</div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="wrap">
+    <div class="sec-head reveal r-up">
+      <p class="kicker">למי זה מתאים</p>
+      <h2 class="sec-title">מותאם לכל אבן דרך, לשותף לעובד בכיר או לפורש</h2>
+      <p class="sec-lead">מבנה התוכן, הנושאים והמרואיינים נבנים תמיד יחד עם מזמין האירוע, כדי שהערב יהיה מדויק לאדם, לארגון ולערכים של החברה.</p>
+    </div>
+    <div class="events-grid">
+      <div class="ev-card reveal r-right"><div class="ev-img"><img class="bg parallax" data-speed="14" src="assets/images/image1.png" alt="פרישה" loading="lazy"><span class="badge">פרישה</span></div><div class="ev-body"><h3>אירוע פרישה</h3><p>רגע השיא של הקריירה. מעלים תחנות חשובות מתקופת העבודה דרך סיפורים שמשקפים את התרומה לארגון, ומשדרים לכל הצוות שנשאר עד כמה החברה מעריכה את מי שנתן לה שנים.</p></div></div>
+      <div class="ev-card reveal r-up"><div class="ev-img"><img class="bg parallax" data-speed="14" src="assets/images/image2.png" alt="קידום" loading="lazy"><span class="badge">קידום</span></div><div class="ev-body"><h3>קידום בתפקיד</h3><p>מציינים אבן דרך מקצועית, מספרים את הדרך שעשה האדם ומציבים אותו בפני הצוות בכבוד הראוי.</p></div></div>
+      <div class="ev-card reveal r-left"><div class="ev-img"><img class="bg parallax" data-speed="14" src="assets/images/image3.png" alt="הוקרה" loading="lazy"><span class="badge">הוקרה</span></div><div class="ev-body"><h3>טקס הוקרה</h3><p>אומרים תודה על הכל. ערב שמכבד עובד או מנהל מרכזי ומחזק את תחושת השייכות של כל הצוות.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="sec-head reveal r-up">
+      <p class="kicker">איך זה עובד</p>
+      <h2 class="sec-title">הסוד הוא בתוכן. וזה מתחיל הרבה לפני הערב</h2>
+      <p class="sec-lead">באירוע פרישה הדבר החשוב מכל הוא התוכן. לשם כך פרדי עורך תחקיר אמיתי, מראיין קולגות, חברים ומשפחה, ומתוכם כותב ועורך תסריט שלם, בלי שתצטרכו להשקיע בזה זמן או משאבים.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal r-right"><div class="num">01</div><div><h3>תחקיר מעמיק</h3><p>איסוף הסיפורים, האנקדוטות והרגעים שמרכיבים את הדמות.</p></div></div>
+      <div class="step reveal r-left"><div class="num">02</div><div><h3>ראיונות</h3><p>עמיתים, קולגות, חברים ובני משפחה. כל זווית מקבלת מקום.</p></div></div>
+      <div class="step reveal r-right"><div class="num">03</div><div><h3>כתיבה ועריכה</h3><p>תסריט ועריכת סרטים ברמה גבוהה שמחברים הכל לסיפור אחד.</p></div></div>
+      <div class="step reveal r-left"><div class="num">04</div><div><h3>הפקת הערב</h3><p>תיעוד בשתי מצלמות, מצגת ולוגיסטיקה מלאה של האירוע.</p></div></div>
+      <div class="step reveal r-up"><div class="num">05</div><div><h3>הנחיה ושירה</h3><p>הנחיה מקצועית ושירה בציבור עם גיטרה שמרימה את הערב.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="wrap">
+    <div class="sec-head reveal r-up">
+      <p class="kicker">מרגש, מפתיע, מצחיק</p>
+      <h2 class="sec-title">ערב בלתי נשכח:</h2>
+    </div>
+    <div class="gal-grid">
+      <figure class="gal-item reveal r-scale"><img class="bg" src="assets/images/image1.png" alt="ראיונות אישיים על הבמה" loading="lazy"><figcaption class="gal-label">הסיפורים שמרכיבים חיים שלמים</figcaption></figure>
+      <figure class="gal-item reveal r-up"><img class="bg" src="assets/images/image2.png" alt="הנחיית אירוע הוקרה" loading="lazy"><figcaption class="gal-label">הנחיה אישית ומדויקת</figcaption></figure>
+      <figure class="gal-item reveal r-down"><img class="bg" src="assets/images/image3.png" alt="במה ערוכה לקראת האירוע" loading="lazy"><figcaption class="gal-label">במה שמוכנה לרגע הגדול</figcaption></figure>
+      <figure class="gal-item reveal r-scale"><img class="bg" src="assets/images/freddy3.jpg" alt="שירה בציבור עם גיטרה" loading="lazy"><figcaption class="gal-label">מוזיקה שמחברת את הקהל</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDED -->
+<section id="included">
+  <div class="wrap">
+    <div class="sec-head reveal r-up">
+      <p class="kicker">מה כלול</p>
+      <h2 class="sec-title">חבילה אחת מקצה לקצה, בלי עומס על הצוות שלכם</h2>
+    </div>
+    <div class="incl-grid">
+      <div class="incl reveal r-right"><div class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="m16 16 4 4"></path><path d="M8.5 11h5M11 8.5v5"></path></svg></div><div><h3>תחקיר וראיונות</h3><p>חברים לעבודה מספרים על השנים המשותפות ועל התמורות במקום העבודה.</p></div></div>
+      <div class="incl reveal r-left"><div class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 19c0-2.2-1.8-4-4-4s-4 1.8-4 4"></path><circle cx="12" cy="9" r="3"></circle><path d="M5 18c0-1.7 1-3.1 2.5-3.7M19 18c0-1.7-1-3.1-2.5-3.7M6.5 7.5a2.5 2.5 0 0 0 0 4.5M17.5 7.5a2.5 2.5 0 0 1 0 4.5"></path></svg></div><div><h3>הזווית המשפחתית</h3><p>המשפחה מספרת את הסיפור מהבית. נישואין, ילדים, נכדים והחיים שמסביב.</p></div></div>
+      <div class="incl reveal r-right"><div class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 5h-7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"></path><path d="m13 13 6.5-6.5a1.4 1.4 0 0 0-2-2L11 11l-.5 2.5Z"></path></svg></div><div><h3>כתיבת תסריט ועריכה</h3><p>תסריט מלא ועריכת וידאו מקצועית ברמה גבוהה.</p></div></div>
+      <div class="incl reveal r-left"><div class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 18V5l10-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="16" cy="16" r="3"></circle></svg></div><div><h3>שירה בציבור עם גיטרה</h3><p>ליווי מוזיקלי חי ושירי ארץ-ישראל שמחברים את כולם.</p></div></div>
+      <div class="incl reveal r-right"><div class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M6 11a6 6 0 0 0 12 0M12 17v4M9 21h6"></path></svg></div><div><h3>הנחיה מקצועית</h3><p>הנחיה חמה, מדויקת ומכובדת לאורך כל הערב.</p></div></div>
+      <div class="incl reveal r-left"><div class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2"></rect><path d="m16 10 5-3v10l-5-3"></path></svg></div><div><h3>סרט מזכרת</h3><p>צילום בשתי מצלמות. הראיונות הערוכים והאירוע עצמו נשארים אצלכם לתמיד, ומשמשים גם נכס תיעודי לארגון.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust" id="trust">
+  <div class="wrap trust-grid">
+    <div class="trust-text reveal r-right">
+      <p class="kicker">למה דווקא פרדי</p>
+      <h2>ניסיון של מעל 20 שנה, ויד בטוחה ברגעים הכי רגישים</h2>
+      <p>אירוע פרישה הוא לא עוד מסיבה. הוא רגע רגיש שמייצג שנים של עבודה ושייכות.<br/> הניסיון מאפשר לי לקרוא נכון את החדר, לדייק את התוכן ולנהל את הערב בביטחון מלא, כך שההנהלה נראית טוב, העובד מרגיש מוערך ואתם יוצאים מהאירוע בלי הפתעות.</p>
+      <p>בשנים 2016 עד 2018 לקחתי חלק כמראיין ומתעד בפרויקט מטעם ההסתדרות הציונית העולמית בשיתוף משרד ראש הממשלה. <br/> מאות ראיונות שנשמרים בספרייה הלאומית ע"ש שפילברג.</p>
+    </div>
+    <div class="trust-media reveal r-left"><img class="bg parallax" data-speed="20" src="assets/images/freddy.png" alt="ניסיון ואמינות" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal r-right">
+      <p class="kicker">בואו נדבר</p>
+      <h2>פרדי ישמח לבנות לכם את הערב הבא</h2>
+      <p class="lead">השאירו פרטים ופרדי יחזור אליכם עם כל המידע והצעת מחיר מותאמת. אפשר גם פשוט להרים טלפון או לכתוב בוואטסאפ.</p>
+      <div class="contact-info">
+        <a href="https://wa.me/972528818148?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%90%D7%99%D7%A8%D7%95%D7%A2%20%D7%A4%D7%A8%D7%99%D7%A9%D7%94" target="_blank" rel="noopener"><span class="ci-ico">💬</span> וואטסאפ 052-8818148</a>
+        <a href="tel:+972528818148"><span class="ci-ico">📞</span> חייגו לפרדי 052-8818148</a>
+        <a href="https://freddybarak.com" target="_blank" rel="noopener"><span class="ci-ico">🌐</span> freddybarak.com</a>
+      </div>
+    </div>
+    <form id="leadForm" class="reveal r-left">
+      <h3>קבלת הצעת מחיר</h3>
+      <p class="fsub">פרדי יחזור אליכם בהקדם עם כל הפרטים.</p>
+      <div class="field"><label for="name">שם מלא</label><input id="name" type="text" placeholder="שם הפונה" required></div>
+      <div class="field"><label for="org">ארגון / חברה</label><input id="org" type="text" placeholder="שם הארגון"></div>
+      <div class="field"><label for="phone">טלפון</label><input id="phone" type="tel" placeholder="מספר טלפון" required></div>
+      <div class="field"><label for="type">סוג האירוע</label><input id="type" type="text" placeholder="פרישה / קידום / הוקרה"></div>
+      <div class="field"><label for="msg">פרטים נוספים</label><textarea id="msg" placeholder="הערות נוספות"></textarea></div>
+      <button type="submit" class="btn btn-primary">שליחת הפרטים</button>
+      <div class="form-ok" id="formOk">תודה! הפרטים התקבלו ופרדי יחזור אליכם בהקדם 🙏</div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <a href="#top" class="brand"><img class="brand-logo" src="assets/images/logo.png" alt=""><span>חיים שכאלה</span></a>
+    <p>ברק הפקות · פרדי ברק · הפקת תוכן והנחיית אירועים לארגונים</p>
+    <p class="made">© <span id="yr"></span> כל הזכויות שמורות</p>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a class="wa-float" href="https://wa.me/972528818148?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%90%D7%99%D7%A8%D7%95%D7%A2%20%D7%97%D7%99%D7%99%D7%9D%20%D7%A9%D7%9B%D7%90%D7%9C%D7%94" target="_blank" rel="noopener" aria-label="וואטסאפ">
+  <span class="wa-ico"><svg viewBox="0 0 24 24" fill="#fff"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.515zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></span>
+  <span class="wa-txt">דברו עם פרדי בוואטסאפ</span>
+</a>
+
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // nav scroll state
+  const nav=document.getElementById('nav');
+  addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+
+  // burger
+  const burger=document.getElementById('burger'),links=document.getElementById('navlinks');
+  burger.addEventListener('click',()=>{burger.classList.toggle('x');links.classList.toggle('open')});
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{burger.classList.remove('x');links.classList.remove('open')}));
+
+  // directional reveals
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // scroll parallax for images
+  const para=[...document.querySelectorAll('.parallax')];
+  if(!reduce && para.length){
+    let ticking=false;
+    function frame(){
+      const vh=innerHeight;
+      para.forEach(el=>{
+        const r=el.parentElement.getBoundingClientRect();
+        if(r.bottom<-200||r.top>vh+200) return;
+        const center=r.top+r.height/2;
+        const off=(center-vh/2)/vh;          // ~ -1..1
+        const speed=parseFloat(el.dataset.speed||'18');
+        el.style.transform=`translate3d(0, ${(-off*speed).toFixed(1)}px, 0)`;
+      });
+      ticking=false;
+    }
+    addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(frame);ticking=true}},{passive:true});
+    addEventListener('resize',frame,{passive:true});
+    frame();
+  }
+
+  // form (front-end demo only)
+  document.getElementById('leadForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    document.getElementById('formOk').style.display='block';
+    e.target.querySelectorAll('input,textarea').forEach(f=>f.value='');
+  });
+</script>
+</body>
+</html>
