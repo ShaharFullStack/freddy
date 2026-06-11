@@ -794,7 +794,13 @@
       </div>
       <div class="field">
         <label for="evtype">סוג האירוע</label>
-        <input id="evtype" name="evtype" type="text" placeholder="פרישה / קידום / הוקרה">
+        <select id="evtype" name="evtype">
+          <option selected disabled value="">בחירה</option>
+          <option value="פרישה">פרישה</option>
+          <option value="קידום">קידום</option>
+          <option value="הוקרה">הוקרה</option>
+          <option value="אחר">אחר</option>
+        </select>
       </div>
       <div class="field">
         <label for="msg">פרטים נוספים</label>
