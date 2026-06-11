@@ -77,7 +77,7 @@
   .wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 18px}
 
   /* ============================================================
-     NAV — mobile-first
+     NAV - mobile-first
   ============================================================ */
   nav{
     position:fixed;top:0;right:0;left:0;z-index:100;
@@ -120,7 +120,7 @@
   }
 
   /* ============================================================
-     HERO — mobile-first
+     HERO - mobile-first
   ============================================================ */
   header.hero{
     position:relative;
@@ -264,7 +264,7 @@
   .step p{font-size:.92rem;color:rgba(252,249,234,.66)}
 
   /* ============================================================
-     GALLERY — mobile-first
+     GALLERY - mobile-first
   ============================================================ */
   .gallery{background:var(--cream)}
   /* Mobile: simple 2-col grid, equal height tiles, NO offset tricks */
@@ -376,20 +376,30 @@
   form .fsub{font-size:.87rem;color:var(--ink-soft);margin-bottom:18px}
   .field{margin-bottom:12px}
   .field label{display:block;font-size:.82rem;font-weight:500;margin-bottom:4px}
-  .field input,.field textarea{
+  .field input,.field textarea,.field select{
     width:100%;padding:12px 14px;
     border:1.5px solid rgba(36,31,28,.15);border-radius:10px;
     font-family:'Heebo';font-size:.97rem;background:var(--cream);
     transition:border-color .2s;
   }
-  .field input:focus,.field textarea:focus{outline:none;border-color:var(--rose)}
+  .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--rose)}
+  .field input[aria-invalid="true"],.field textarea[aria-invalid="true"],.field select[aria-invalid="true"]{border-color:var(--rose-deep);background:#fff6f4}
+  .field select{appearance:auto;color:var(--ink)}
   .field textarea{resize:vertical;min-height:78px}
-  form .btn-primary{width:100%;margin-top:4px;font-size:1rem;padding:14px}
-  .form-ok{
-    display:none;background:var(--teal);color:var(--ink);
-    padding:13px;border-radius:10px;text-align:center;
-    font-weight:500;margin-top:10px;
+  .field-error{
+    display:block;min-height:18px;margin-top:4px;
+    font-size:.78rem;line-height:1.35;color:var(--rose-deep);
   }
+  form .btn-primary{width:100%;margin-top:4px;font-size:1rem;padding:14px}
+  .form-status{
+    display:none;
+    padding:13px;border-radius:10px;text-align:center;
+    font-weight:500;margin-top:10px;line-height:1.55;
+  }
+  .form-status.is-visible{display:block}
+  .form-status.is-success{background:var(--teal);color:var(--ink)}
+  .form-status.is-error{background:#fff0ec;color:var(--rose-deep);border:1px solid rgba(197,71,74,.24)}
+  .form-status a{text-decoration:underline;font-weight:700}
 
   /* ============================================================
      FOOTER
@@ -544,7 +554,7 @@
   </div>
   <div class="wrap hero-inner">
     <h1 class="hero-title reveal r-up">כשמגיע הרגע להגיד<br><span class="em">תודה</span> על כל השנים</h1>
-    <p class="hero-sub reveal r-up">הפקה והנחיה מלאה של אירוע שמעניק כבוד אמיתי לעובד הוותיק. פרדי לוקח על עצמו את התחקיר, הכתיבה, הצילום וההנחיה — כך שלכם נשאר רק ליהנות מהערב.</p>
+    <p class="hero-sub reveal r-up">הפקה והנחיה מלאה של אירוע שמעניק כבוד אמיתי לעובד הוותיק. פרדי לוקח על עצמו את התחקיר, הכתיבה, הצילום וההנחיה, כך שלכם נשאר רק ליהנות מהערב.</p>
     <div class="hero-cta reveal r-up">
       <a href="#contact" class="btn btn-primary" id="hero-cta-main">לקבלת הצעת מחיר</a>
       <a href="#process" class="btn btn-ghost" id="hero-cta-secondary">איך זה עובד</a>
@@ -749,7 +759,7 @@
       </div>
       <div class="tst reveal r-left">
         <div class="stars">★★★★★</div>
-        <p>ארגנו אירוע פרישה גדול עם 200 איש. פרדי ניהל הכל בעצמו — מהתחקיר, דרך הסרט ועד ההנחיה. לא היה לנו דאגה אחת. מומלץ מכל הלב.</p>
+        <p>ארגנו אירוע פרישה גדול עם 200 איש. פרדי ניהל הכל בעצמו, מהתחקיר, דרך הסרט ועד ההנחיה. לא היה לנו דאגה אחת. מומלץ מכל הלב.</p>
         <div class="who"><div class="av">ר</div><div><b>רותם כ׳</b><small>מנהלת משאבי אנוש, רשות מקומית</small></div></div>
       </div>
     </div>
@@ -777,38 +787,43 @@
         </a>
       </div>
     </div>
-    <form id="leadForm" class="reveal r-left" novalidate>
+    <form id="leadForm" class="reveal r-left" action="/api/leads" method="post" novalidate>
       <h3>קבלת הצעת מחיר</h3>
       <p class="fsub">פרדי יחזור אליכם בהקדם עם כל הפרטים.</p>
       <div class="field">
         <label for="name">שם מלא</label>
-        <input id="name" name="name" type="text" placeholder="שם הפונה" required autocomplete="name">
+        <input id="name" name="name" type="text" placeholder="שם הפונה" required autocomplete="name" aria-describedby="name-error">
+        <span class="field-error" id="name-error"></span>
       </div>
       <div class="field">
         <label for="org">ארגון / חברה</label>
-        <input id="org" name="org" type="text" placeholder="שם הארגון" autocomplete="organization">
+        <input id="org" name="org" type="text" placeholder="שם הארגון" autocomplete="organization" aria-describedby="org-error">
+        <span class="field-error" id="org-error"></span>
       </div>
       <div class="field">
         <label for="phone">טלפון</label>
-        <input id="phone" name="phone" type="tel" placeholder="מספר טלפון" required autocomplete="tel">
+        <input id="phone" name="phone" type="tel" placeholder="מספר טלפון" required autocomplete="tel" inputmode="tel" aria-describedby="phone-error">
+        <span class="field-error" id="phone-error"></span>
       </div>
       <div class="field">
         <label for="evtype">סוג האירוע</label>
-        <select id="evtype" name="evtype">
+        <select id="evtype" name="evtype" required aria-describedby="evtype-error">
           <option selected disabled value="">בחירה</option>
           <option value="פרישה">פרישה</option>
           <option value="קידום">קידום</option>
           <option value="הוקרה">הוקרה</option>
           <option value="אחר">אחר</option>
         </select>
+        <span class="field-error" id="evtype-error"></span>
       </div>
       <div class="field">
         <label for="msg">פרטים נוספים</label>
-        <textarea id="msg" name="msg" placeholder="הערות נוספות"></textarea>
+        <textarea id="msg" name="msg" placeholder="הערות נוספות" aria-describedby="msg-error"></textarea>
+        <span class="field-error" id="msg-error"></span>
       </div>
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0">
       <button type="submit" class="btn btn-primary" id="form-submit">שליחת הפרטים</button>
-      <div class="form-ok" id="formOk" role="alert" aria-live="polite">
-        תודה! הפרטים התקבלו ופרדי יחזור אליכם בהקדם 🙏
+      <div class="form-status" id="formStatus" role="status" aria-live="polite">
       </div>
     </form>
   </div>
@@ -901,39 +916,158 @@
     frame();
   }
 
-  /* ── form submit ──
-     Uses mailto fallback; swap for Formspree/fetch in production.
-  ── */
-  document.getElementById('leadForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn = document.getElementById('form-submit');
-    btn.disabled = true;
-    btn.textContent = 'שולח…';
+  /* ── lead form submission ── */
+  const leadForm = document.getElementById('leadForm');
+  const submitBtn = document.getElementById('form-submit');
+  const formStatus = document.getElementById('formStatus');
+  const whatsappPhone = '972528818148';
+  const validators = {
+    name: value => value.length >= 2 ? '' : 'אנא הזינו שם מלא.',
+    org: value => value.length <= 80 ? '' : 'שם הארגון ארוך מדי.',
+    phone: value => isValidPhone(value) ? '' : 'אנא הזינו מספר טלפון תקין.',
+    evtype: value => value ? '' : 'אנא בחרו סוג אירוע.',
+    msg: value => value.length <= 700 ? '' : 'ההודעה ארוכה מדי. עד 700 תווים.'
+  };
 
-    const name  = document.getElementById('name').value.trim();
-    const org   = document.getElementById('org').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const type  = document.getElementById('evtype').value.trim();
-    const msg   = document.getElementById('msg').value.trim();
+  function isValidPhone(value) {
+    const compact = value.replace(/[\s().-]/g, '');
+    return /^(?:\+972|972|0)(?:[23489]\d{7}|5\d{8})$/.test(compact);
+  }
 
-    // ── Option A: WhatsApp deep-link (works without server) ──
+  function normalizePhone(value) {
+    const compact = value.replace(/[\s().-]/g, '');
+    if (compact.startsWith('+')) return compact;
+    if (compact.startsWith('972')) return `+${compact}`;
+    if (compact.startsWith('0')) return `+972${compact.slice(1)}`;
+    return compact;
+  }
+
+  function getLeadPayload(form) {
+    const data = new FormData(form);
+    return {
+      name: (data.get('name') || '').trim(),
+      organization: (data.get('org') || '').trim(),
+      phone: normalizePhone((data.get('phone') || '').trim()),
+      eventType: (data.get('evtype') || '').trim(),
+      message: (data.get('msg') || '').trim(),
+      source: 'freddybarak-landing',
+      page: location.href,
+      submittedAt: new Date().toISOString(),
+      website: (data.get('website') || '').trim()
+    };
+  }
+
+  function setFieldError(name, message) {
+    const field = leadForm.elements[name];
+    const error = document.getElementById(`${name}-error`);
+    if (!field || !error) return;
+    field.setAttribute('aria-invalid', message ? 'true' : 'false');
+    error.textContent = message;
+  }
+
+  function validateLead(payload) {
+    const errors = {};
+    errors.name = validators.name(payload.name);
+    errors.org = validators.org(payload.organization);
+    errors.phone = validators.phone(payload.phone);
+    errors.evtype = validators.evtype(payload.eventType);
+    errors.msg = validators.msg(payload.message);
+
+    Object.entries(errors).forEach(([name, message]) => setFieldError(name, message));
+    const firstInvalid = Object.keys(errors).find(name => errors[name]);
+    if (firstInvalid) leadForm.elements[firstInvalid].focus();
+    return !firstInvalid;
+  }
+
+  function getWhatsappUrl(payload) {
     const text = encodeURIComponent(
       `היי פרדי! הגעתי דרך האתר.\n` +
-      `שם: ${name}\n` +
-      (org   ? `ארגון: ${org}\n` : '') +
-      `טלפון: ${phone}\n` +
-      (type  ? `סוג אירוע: ${type}\n` : '') +
-      (msg   ? `הערות: ${msg}` : '')
+      `שם: ${payload.name}\n` +
+      (payload.organization ? `ארגון: ${payload.organization}\n` : '') +
+      `טלפון: ${payload.phone}\n` +
+      (payload.eventType ? `סוג אירוע: ${payload.eventType}\n` : '') +
+      (payload.message ? `הערות: ${payload.message}` : '')
     );
-    window.open(`https://wa.me/972528818148?text=${text}`, '_blank', 'noopener');
+    return `https://wa.me/${whatsappPhone}?text=${text}`;
+  }
 
-    // show success message
-    const ok = document.getElementById('formOk');
-    ok.style.display = 'block';
-    this.querySelectorAll('input,textarea').forEach(f => f.value = '');
-    btn.disabled = false;
-    btn.textContent = 'שליחת הפרטים';
-    setTimeout(() => { ok.style.display = 'none'; }, 7000);
+  function setFormStatus(type, html) {
+    formStatus.className = `form-status is-visible is-${type}`;
+    formStatus.innerHTML = html;
+  }
+
+  function clearFormStatus() {
+    formStatus.className = 'form-status';
+    formStatus.textContent = '';
+  }
+
+  function setSubmitting(isSubmitting) {
+    submitBtn.disabled = isSubmitting;
+    submitBtn.textContent = isSubmitting ? 'שולח...' : 'שליחת הפרטים';
+    [...leadForm.elements].forEach(field => {
+      if (field !== submitBtn) field.disabled = isSubmitting;
+    });
+  }
+
+  async function submitLead(payload) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000);
+    try {
+      const response = await fetch(leadForm.action, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload),
+        signal: controller.signal
+      });
+
+      const contentType = response.headers.get('content-type') || '';
+      const body = contentType.includes('application/json') ? await response.json() : null;
+      if (!response.ok || (body && body.ok === false)) {
+        throw new Error((body && body.message) || 'Lead submission failed');
+      }
+      return body;
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
+
+  leadForm.querySelectorAll('input, textarea, select').forEach(field => {
+    const validateField = () => {
+      clearFormStatus();
+      if (field.name && validators[field.name]) {
+        const payload = getLeadPayload(leadForm);
+        const value = field.name === 'org' ? payload.organization : payload[field.name] || field.value.trim();
+        setFieldError(field.name, validators[field.name](value));
+      }
+    };
+    field.addEventListener('input', validateField);
+    field.addEventListener('change', validateField);
+  });
+
+  leadForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const payload = getLeadPayload(leadForm);
+    clearFormStatus();
+
+    if (payload.website) return;
+    if (!validateLead(payload)) return;
+
+    setSubmitting(true);
+    try {
+      await submitLead(payload);
+      leadForm.reset();
+      leadForm.querySelectorAll('[aria-invalid]').forEach(field => field.setAttribute('aria-invalid', 'false'));
+      leadForm.querySelectorAll('.field-error').forEach(error => { error.textContent = ''; });
+      setFormStatus('success', 'תודה! הפרטים התקבלו ופרדי יחזור אליכם בהקדם.');
+    } catch (err) {
+      const waUrl = getWhatsappUrl(payload);
+      setFormStatus('error', `לא הצלחנו לשלוח את הפרטים כרגע. אפשר לנסות שוב בעוד רגע או <a href="${waUrl}" target="_blank" rel="noopener noreferrer">לשלוח אותם בוואטסאפ</a>.`);
+    } finally {
+      setSubmitting(false);
+    }
   });
 </script>
 </body>
