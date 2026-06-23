@@ -63,7 +63,7 @@ export default function Hero() {
       <div className="absolute inset-0 overflow-hidden">
         <img
           ref={imgRef}
-          src="/freddy/images/freddy5.jpg"
+          src="/images/freddy5.jpg"
           alt="פרדי ברק מנחה אירוע פרישה"
           className="absolute w-full h-[115%] object-cover"
           style={{ objectPosition: '88% 10%', top: 0 }}

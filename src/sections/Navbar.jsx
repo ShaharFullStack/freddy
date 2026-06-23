@@ -52,7 +52,7 @@ export default function Navbar() {
       >
         {/* Brand */}
         <a href="#top" className="flex items-center gap-3 z-50" onClick={close}>
-          <img src="/freddy/logo.png" alt="לוגו" className="w-10 h-10 object-contain" />
+          <img src="/logo.png" alt="לוגו" className="w-10 h-10 object-contain" />
           <span className="font-rubik font-black text-[1.15rem] leading-none text-[var(--color-primary)]">
             חיים שכאלה
             <small className="block font-heebo font-normal text-[0.52rem] tracking-[2.5px] text-[var(--color-sage)] mt-0.5">

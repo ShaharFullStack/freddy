@@ -72,7 +72,7 @@ export default function Trust() {
             style={{ height: 'clamp(320px, 50vw, 480px)' }}
           >
             <img
-              src="/freddy/images/freddy.png"
+              src="/images/freddy.png"
               alt="פרדי ברק – ניסיון ואמינות"
               className="absolute inset-0 w-full h-full object-cover"
               style={{ objectPosition: 'center top' }}

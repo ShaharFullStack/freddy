@@ -10,7 +10,7 @@ export const events = [
     id: 'retirement',
     badge: 'פרישה',
     title: 'אירוע פרישה',
-    image: '/freddy/images/image1.png',
+    image: '/images/image1.png',
     alt: 'אירוע פרישה רשמי על הבמה',
     desc: 'רגע השיא של הקריירה. מעלים תחנות חשובות מתקופת העבודה דרך סיפורים שמשקפים את התרומה לארגון, ומשדרים לכל הצוות שנשאר עד כמה החברה מעריכה את מי שנתן לה שנים.',
   },
@@ -18,7 +18,7 @@ export const events = [
     id: 'promotion',
     badge: 'קידום',
     title: 'קידום בתפקיד',
-    image: '/freddy/images/freddy3.jpg',
+    image: '/images/freddy3.jpg',
     alt: 'אירוע קידום בתפקיד',
     desc: 'מציינים אבן דרך מקצועית, מספרים את הדרך שעשה האדם ומציבים אותו בפני הצוות בכבוד הראוי.',
   },
@@ -26,7 +26,7 @@ export const events = [
     id: 'appreciation',
     badge: 'הוקרה',
     title: 'טקס הוקרה',
-    image: '/freddy/images/freddy8.jpg',
+    image: '/images/freddy8.jpg',
     alt: 'טקס הוקרה עם שירה בציבור',
     desc: 'אומרים תודה על הכל. ערב שמכבד עובד או מנהל מרכזי ומחזק את תחושת השייכות של כל הצוות.',
   },
@@ -41,10 +41,10 @@ export const steps = [
 ]
 
 export const gallery = [
-  { image: '/freddy/images/image2.png', alt: 'ראיון אישי על הבמה עם פרדי ברק', label: 'הסיפורים שמרכיבים חיים שלמים', pos: 'center top' },
-  { image: '/freddy/images/freddy3.jpg', alt: 'הנחיית פאנל על הבמה', label: 'הנחיה אישית ומדויקת', pos: 'center top' },
-  { image: '/freddy/images/freddy9.png', alt: 'במה ערוכה לאירוע', label: 'במה שמוכנה לרגע הגדול', pos: 'center top' },
-  { image: '/freddy/images/freddy7.jpg', alt: 'פרדי ברק שר עם גיטרה בציבור', label: 'מוזיקה שמחברת את הקהל', pos: 'center 14%' },
+  { image: '/images/image2.png', alt: 'ראיון אישי על הבמה עם פרדי ברק', label: 'הסיפורים שמרכיבים חיים שלמים', pos: 'center top' },
+  { image: '/images/freddy3.jpg', alt: 'הנחיית פאנל על הבמה', label: 'הנחיה אישית ומדויקת', pos: 'center top' },
+  { image: '/images/freddy9.png', alt: 'במה ערוכה לאירוע', label: 'במה שמוכנה לרגע הגדול', pos: 'center top' },
+  { image: '/images/freddy7.jpg', alt: 'פרדי ברק שר עם גיטרה בציבור', label: 'מוזיקה שמחברת את הקהל', pos: 'center 14%' },
 ]
 
 export const included = [

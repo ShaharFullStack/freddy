@@ -87,7 +87,7 @@ export default function About() {
             style={{ height: 'clamp(340px, 55vw, 520px)' }}
           >
             <img
-              src="/freddy/images/freddy2.png"
+              src="/images/freddy2.png"
               alt="פרדי ברק – מנחה ומפיק אירועים"
               className="absolute inset-0 w-full h-full object-cover"
               style={{ objectPosition: 'center 45%' }}

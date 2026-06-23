@@ -4,7 +4,7 @@ export default function Footer() {
       <footer className="bg-[var(--color-dark)] text-[var(--color-sage)] py-10 border-t border-white/6 text-center">
         <div className="w-full max-w-[1180px] mx-auto px-5">
           <a href="#top" className="inline-flex items-center gap-3 justify-center mb-4">
-            <img src="/freddy/logo.png" alt="לוגו" className="w-9 h-9 object-contain" />
+            <img src="/logo.png" alt="לוגו" className="w-9 h-9 object-contain" />
             <span className="font-rubik font-black text-[1.1rem] text-[var(--color-primary)]">חיים שכאלה</span>
           </a>
           <p className="text-sm">ברק הפקות · פרדי ברק · הפקת תוכן והנחיית אירועים לארגונים</p>
