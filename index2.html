@@ -645,8 +645,10 @@
         height: auto;
         background: var(--paper);
         border: 1px solid rgba(36, 31, 28, 0.08);
-        box-shadow: 0 12px 28px -18px rgba(36, 31, 28, 0.4);
+        box-shadow: 0 12px 28px -18px rgba(36, 31, 28);
         isolation: isolate;
+        transition: all 0.3s;
+
       }
       /* Mobile: first item spans full width */
       .gal-item:first-child {
@@ -664,7 +666,8 @@
         display: block;
         object-fit: cover;
         object-position: center top;
-        transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: all 0.35s;
+
       }
       .gal-item::after {
         content: "";
@@ -674,6 +677,15 @@
         z-index: 1;
         pointer-events: none;
         background: linear-gradient(0deg, rgba(36, 31, 28, 0.76), transparent);
+        transition: all 0.3s;
+
+      }
+      .gal-item:hover {
+        width: 110%;
+        height: 110%;
+        z-index: 10;
+        box-shadow:  10px 20px 10px -5px rgba(36, 31, 28, 0.6);
+
       }
       .gal-item:hover .bg {
         transform: scale(1.035);
