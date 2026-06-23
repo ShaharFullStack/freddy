@@ -278,10 +278,10 @@
       }
       .hero-media .bg {
         position: absolute;
-        top: 3em;
+        top: 0;
         left: 0;
         right: 0;
-        bottom: -4px;
+        bottom: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -302,7 +302,7 @@
       .hero-inner {
         position: relative;
         z-index: 2;
-        padding: 100px 0 48px;
+        padding: clamp(80px, 18vw, 120px) 0 48px;
       }
       .eyebrow {
         display: inline-flex;
@@ -487,10 +487,10 @@
       }
       .about-media .bg {
         position: absolute;
-        top: -10%;
+        top: 0;
         left: 0;
         width: 100%;
-        height: 120%;
+        height: 100%;
         object-fit: cover;
         object-position: center top;
         will-change: transform;
@@ -538,12 +538,12 @@
       }
       .ev-img .bg {
         position: absolute;
-        top: -10%;
+        top: 0;
         left: 0;
         width: 100%;
-        height: 120%;
+        height: 100%;
         object-fit: cover;
-        object-position: center;
+        object-position: center top;
         will-change: transform;
         transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
       }
@@ -643,10 +643,7 @@
         position: relative;
         overflow: hidden;
         border-radius: 16px;
-        gap: 1em;
-        height: 100%;
-        top: 0;
-        margin-bottom: 3em;
+        height: auto;
         background: var(--paper);
         border: 1px solid rgba(36, 31, 28, 0.08);
         box-shadow: 0 12px 28px -18px rgba(36, 31, 28, 0.4);
@@ -657,7 +654,7 @@
         grid-column: 1/-1;
       }
       .gal-item:first-child .bg {
-        aspect-ratio: 16/8;
+        aspect-ratio: 16/9;
       }
       .gal-item:not(:first-child) .bg {
         aspect-ratio: 4/3;
@@ -667,6 +664,7 @@
         height: auto;
         display: block;
         object-fit: cover;
+        object-position: center top;
         transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
       }
       .gal-item::after {
@@ -759,7 +757,7 @@
         position: relative;
         border-radius: 20px;
         overflow: hidden;
-        height: 240px;
+        height: 300px;
         flex-shrink: 0;
       }
       .trust-media .bg {
@@ -1097,6 +1095,31 @@
       }
 
       /* ============================================================
+     SMALL MOBILE  ≤ 400px
+  ============================================================ */
+      @media (max-width: 400px) {
+        .hero-meta {
+          gap: 14px;
+        }
+        .hero-meta .n {
+          font-size: 1.4rem;
+        }
+        .btn {
+          padding: 12px 18px;
+          font-size: 0.88rem;
+        }
+        .about-media {
+          height: 260px;
+        }
+        .trust-media {
+          height: 260px;
+        }
+        .gal-item:first-child .bg {
+          aspect-ratio: 4/3;
+        }
+      }
+
+      /* ============================================================
      TABLET  ≥ 768px
   ============================================================ */
       @media (min-width: 768px) {
@@ -1128,6 +1151,10 @@
         .about-media {
           height: 380px;
         }
+        .about-media .bg {
+          top: -10%;
+          height: 120%;
+        }
         .events-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
@@ -1135,6 +1162,10 @@
         }
         .ev-img {
           height: 210px;
+        }
+        .ev-img .bg {
+          top: -10%;
+          height: 120%;
         }
         .step {
           gap: 22px;
@@ -1196,6 +1227,7 @@
           width: 100%;
           height: 100%;
           object-fit: cover;
+          object-position: center top;
           aspect-ratio: unset;
         }
         .gal-item {
