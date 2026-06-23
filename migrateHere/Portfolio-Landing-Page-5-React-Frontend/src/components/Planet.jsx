@@ -15,7 +15,7 @@ export function Planet(props) {
   const shapeContainer = useRef(null);
   const shperesContainer = useRef(null);
   const ringContainer = useRef(null);
-  const { nodes, materials } = useGLTF("/models/Planet.glb");
+  const { nodes, materials } = useGLTF("/models/freddy.glb");
 
   useGSAP(() => {
     const tl = gsap.timeline();
