@@ -94,17 +94,17 @@ const Hero = () => {
       >
         {/* ── Mobile-only compact header ── */}
         <div className="pointer-events-auto lg:hidden px-6 flex flex-col justify-center h-full">
-          <p className="text-[10px] font-light tracking-[0.4rem] uppercase text-white/60 mb-3">
+          <p className="text-[12px] font-light tracking-[0.4rem] uppercase text-white/60 mb-2">
             ברק הפקות · פרדי ברק
           </p>
           <h1
-            className="text-[26px] sm:text-[36px] leading-[1.15] uppercase text-white"
-            style={{ textShadow: "0 0 10px rgba(0,0,0,0.8)" }}
+            className="text-[32px] sm:text-[44px] leading-[1.1] uppercase text-white"
+            style={{ textShadow: "0 0 12px rgba(0,0,0,0.9)" }}
           >
             כשמגיע הרגע להגיד תודה על כל השנים
           </h1>
 
-          <p className="text-[12px] sm:text-sm font-light text-white/75 leading-relaxed mt-3 mb-1 text-right whitespace-pre-line">
+          <p className="text-sm sm:text-base font-light text-white/75 leading-relaxed mt-2 mb-1 text-right whitespace-pre-line">
             {text.trim()}
           </p>
 
