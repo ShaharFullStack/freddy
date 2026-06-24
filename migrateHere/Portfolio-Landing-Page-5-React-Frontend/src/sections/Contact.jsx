@@ -271,11 +271,11 @@ const Contact = () => {
               {errors.msg && <p className="text-xs text-[#c5474a] mt-1">{errors.msg}</p>}
             </div>
 
-            {/* Honeypot */}
+            {/* Honeypot – hidden from bots but doesn't extend document width */}
             <input
               type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true"
               value={formData.website} onChange={handleChange}
-              style={{ position: "absolute", left: "-9999px", opacity: 0 }}
+              style={{ position: "absolute", top: "-1px", height: "1px", width: "1px", overflow: "hidden", opacity: 0, pointerEvents: "none" }}
             />
 
             <button

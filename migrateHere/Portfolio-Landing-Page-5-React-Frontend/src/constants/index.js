@@ -5,14 +5,14 @@
  */
 
 // Image imports – paths from src/constants/ up to FreddyLanding/assets/images/
-import freddyImg from '../../../../assets/images/freddy.png'
-import freddy2Img from '../../../../assets/images/freddy2.png'
-import freddy3Img from '../../../../assets/images/freddy3.jpg'
-import freddy5Img from '../../../../assets/images/freddy5.jpg'
-import freddy7Img from '../../../../assets/images/freddy7.jpg'
-import freddy9Img from '../../../../assets/images/freddy9.png'
-import image2Img from '../../../../assets/images/image2.png'
-import logoImg from '../../../../assets/images/logo.png'
+import freddyImg from '../assets/images/freddy.png'
+import freddy2Img from '../assets/images/freddy2.png'
+import freddy3Img from '../assets/images/freddy3.jpg'
+import freddy5Img from '../assets/images/freddyfull.png'
+import freddy7Img from '../assets/images/freddy7.jpg'
+import freddy9Img from '../assets/images/freddy9.png'
+import image2Img from '../assets/images/image2.png'
+import logoImg from '../assets/images/logo.png'
 
 export { freddy2Img, freddy5Img, freddyImg, logoImg }
 

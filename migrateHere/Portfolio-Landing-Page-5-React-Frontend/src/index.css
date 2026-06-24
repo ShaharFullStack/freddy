@@ -129,17 +129,6 @@ h1 {
   width: 100%;
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
 }
-@media (min-width: 768px) {
-  h1 {
-    width: 75%;
-    line-height: 0.7;
-  }
-}
-@media (min-width: 1024px) {
-  h1 {
-    width: 50%;
-  }
-}
 h1, h2, h3, h4 {
   font-family: "Rubik", var(--font-amiamie), sans-serif;
 }
@@ -150,7 +139,7 @@ h1, h2, h3, h4 {
 }
 
 @utility banner-text-responsive {
-  @apply text-[68px] sm:text-[118px] md:text-[126px] lg:text-[152px] leading-9 sm:leading-16 lg:leading-20;
+  @apply text-[28px] sm:text-[42px] md:text-[64px] lg:text-[80px] xl:text-[100px] 2xl:text-[120px] leading-[1.1] sm:leading-[1] md:leading-[0.95] lg:leading-[0.9];
 }
 
 @utility value-text-responsive {
@@ -162,6 +151,6 @@ h1, h2, h3, h4 {
 }
 
 @utility contact-text-responsive {
-  @apply text-[42px] sm:text-[52px] md:text-[62px] lg:text-[100px];
+  @apply text-[28px] sm:text-[42px] md:text-[52px] lg:text-[62px] xl:text-[80px] 2xl:text-[100px];
 }
 

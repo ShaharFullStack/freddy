@@ -18,6 +18,9 @@ const Marquee = ({
   const containerRef = useRef(null);
   const itemsRef = useRef([]);
 
+  // Repeat items enough times to ensure seamless loop with no visible gap
+  const repeated = [...items, ...items, ...items, ...items];
+
   /** Builds a repeating horizontal loop timeline; config.reversed flips direction */
   function horizontalLoop(items, config) {
     items = gsap.utils.toArray(items);
@@ -124,6 +127,7 @@ const Marquee = ({
   }
 
   useEffect(() => {
+    itemsRef.current = itemsRef.current.slice(0, repeated.length);
     const tl = horizontalLoop(itemsRef.current, {
       repeat: -1,
       paddingRight: 30,
@@ -152,14 +156,15 @@ const Marquee = ({
   return (
     <div
       ref={containerRef}
+      dir="ltr"
       className={`overflow-hidden w-full h-20 md:h-[100px] flex items-center marquee-text-responsive font-light uppercase whitespace-nowrap ${className}`}
     >
-      <div className="flex">
-        {items.map((text, index) => (
+      <div className="flex min-w-max">
+        {repeated.map((text, index) => (
           <span
             key={index}
             ref={(el) => (itemsRef.current[index] = el)}
-            className="flex items-center px-16 gap-x-32"
+            className="flex items-center px-16 gap-x-32 shrink-0"
           >
             {text} <Icon icon={icon} className={iconClassName} />
           </span>

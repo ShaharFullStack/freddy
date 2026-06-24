@@ -16,8 +16,6 @@ const AnimatedHeaderSection = ({
 }) => {
   const contextRef = useRef(null);
   const headerRef = useRef(null);
-  const shouldSplitTitle = title.includes(" ");
-  const titleParts = shouldSplitTitle ? title.split(" ") : [title];
   useGSAP(() => {
     const tl = gsap.timeline({
       scrollTrigger: withScrollTrigger
@@ -48,27 +46,25 @@ const AnimatedHeaderSection = ({
       <div style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}>
         <div
           ref={headerRef}
-          className="flex flex-col justify-center gap-12 pt-16 sm:gap-16"
+          className="flex flex-col justify-center gap-6 pt-10 sm:gap-10 sm:pt-14 lg:gap-12 lg:pt-16"
         >
           <p
-            className={`text-sm font-light tracking-[0.5rem] uppercase px-10 ${textColor}`}
+            className={`text-sm font-light tracking-[0.5rem] uppercase px-6 sm:px-10 ${textColor}`}
           >
             {subTitle}
           </p>
-          <div className="px-10">
+          <div className="px-6 sm:px-10">
             <h1
-              className={`flex flex-col gap-12 uppercase banner-text-responsive sm:gap-16 md:block ${textColor}`}
+              className={`uppercase banner-text-responsive w-full ${textColor}`}
             >
-              {titleParts.map((part, index) => (
-                <span key={index}>{part} </span>
-              ))}
+              {title}
             </h1>
           </div>
         </div>
       </div>
-      <div className={`relative px-10 ${textColor}`}>
+      <div className={`relative px-6 sm:px-10 ${textColor}`}>
         <div className="absolute inset-x-0 border-t-2" />
-        <div className="py-12 sm:py-16 text-right">
+        <div className="py-6 sm:py-10 lg:py-12 text-right">
           <AnimatedTextLines
             text={text}
             className={`font-light uppercase value-text-responsive ${textColor}`}
