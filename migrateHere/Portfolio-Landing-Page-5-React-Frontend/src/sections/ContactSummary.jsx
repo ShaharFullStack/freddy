@@ -53,7 +53,7 @@ const ContactSummary = () => {
           ויד בטוחה{" "}
           <span className="italic">ברגעים</span>
           <br />
-          הכי <span className="text-gold">רגישים</span>
+          הכי <span className="text-gold">מרגשים</span>
         </p>
       </div>
 

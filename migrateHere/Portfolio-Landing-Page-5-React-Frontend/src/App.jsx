@@ -12,6 +12,7 @@ import About from "./sections/About";
 import Works from "./sections/Works";
 import ContactSummary from "./sections/ContactSummary";
 import Contact from "./sections/Contact";
+import PopupForm from "./components/PopupForm";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
       <Works />
       <ContactSummary />
       <Contact />
+      <PopupForm />
     </ReactLenis>
   );
 };
