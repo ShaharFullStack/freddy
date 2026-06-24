@@ -88,7 +88,7 @@ const Hero = () => {
         </div>
 
         {/* ── Desktop: animated header (centered vertically) ── */}
-        <div className="pointer-events-auto hidden lg:block w-full">
+        <div className="pointer-events-auto hidden lg:block w-full pb-20">
           <AnimatedHeaderSection
             subTitle={"ברק הפקות · פרדי ברק"}
             title={"כשמגיע הרגע להגיד תודה על כל השנים"}
