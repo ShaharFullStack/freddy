@@ -32,9 +32,8 @@ const LeadForm = ({ title = "קבלת הצעת מחיר", subtitle = "פרדי �
     name: "", org: "", phone: "", evtype: "", msg: "", website: "",
   });
   const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState(null); // null | 'success' | 'error'
+  const [status, setStatus] = useState(null); // null | 'success'
   const [statusMsg, setStatusMsg] = useState("");
-  const [submitting, setSubmitting] = useState(false);
 
   const validators = {
     name: (v) => (v.trim().length >= 2 ? "" : "אנא הזינו שם מלא."),
@@ -63,7 +62,7 @@ const LeadForm = ({ title = "קבלת הצעת מחיר", subtitle = "פרדי �
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.website) return; // honeypot
     if (!validateAll(formData)) return;
@@ -74,36 +73,18 @@ const LeadForm = ({ title = "קבלת הצעת מחיר", subtitle = "פרדי �
       phone: normalizePhone(formData.phone.trim()),
       eventType: formData.evtype,
       message: formData.msg.trim(),
-      source: "freddybarak-landing",
-      page: window.location.href,
-      submittedAt: new Date().toISOString(),
     };
 
-    setSubmitting(true);
-    setStatus(null);
-    try {
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 10000);
-      const res = await fetch("/api/leads", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(payload),
-        signal: controller.signal,
-      });
-      clearTimeout(timeout);
-      const ct = res.headers.get("content-type") || "";
-      const body = ct.includes("application/json") ? await res.json() : null;
-      if (!res.ok || (body && body.ok === false)) throw new Error((body && body.message) || "failed");
-      setFormData({ name: "", org: "", phone: "", evtype: "", msg: "", website: "" });
-      setErrors({});
-      setStatus("success");
-      setStatusMsg("תודה! הפרטים התקבלו ופרדי יחזור אליכם בהקדם.");
-    } catch {
-      setStatus("error");
-      setStatusMsg(buildWhatsappUrl(payload));
-    } finally {
-      setSubmitting(false);
-    }
+    const url = buildWhatsappUrl(payload);
+
+    // Open WhatsApp in a new tab with all the details
+    window.open(url, "_blank", "noopener,noreferrer");
+
+    // Reset form and show confirmation
+    setFormData({ name: "", org: "", phone: "", evtype: "", msg: "", website: "" });
+    setErrors({});
+    setStatus("success");
+    setStatusMsg(url);
   };
 
   const inputClass =
@@ -192,30 +173,21 @@ const LeadForm = ({ title = "קבלת הצעת מחיר", subtitle = "פרדי �
 
       <button
         type="submit"
-        disabled={submitting}
-        className="w-full py-4 rounded-full bg-[#c5474a] text-white font-medium text-base mt-2 hover:-translate-y-1 transition-transform duration-200 disabled:opacity-60"
+        className="w-full py-4 rounded-full bg-[#c5474a] text-white font-medium text-base mt-2 hover:-translate-y-1 transition-transform duration-200"
         style={{ boxShadow: "0 14px 30px -12px rgba(197,71,74,0.7)" }}
       >
-        {submitting ? "שולח..." : "שליחת הפרטים"}
+        שליחה לוואטסאפ 💬
       </button>
 
       {status === "success" && (
-        <div className="p-4 rounded-xl bg-[#badfdb] text-[#241f1c] text-center font-medium text-sm">
-          {statusMsg}
-        </div>
-      )}
-      {status === "error" && (
-        <div className="p-4 rounded-xl bg-[#fff0ec] text-[#c5474a] text-center text-sm border border-[#c5474a]/20">
-          לא הצלחנו לשלוח את הפרטים כרגע. אפשר לנסות שוב בעוד רגע או{" "}
-          <a
-            href={statusMsg}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-bold underline"
-          >
-            לשלוח בוואטסאפ
-          </a>
-          .
+        <div className="p-4 rounded-xl bg-[#badfdb] text-[#241f1c] text-center text-sm">
+          <p className="font-medium mb-1">✅ תודה! הודעה נפתחה בוואטסאפ</p>
+          <p className="text-xs text-[#241f1c]/70">
+            אם הוואטסאפ לא נפתח אוטומטית,{" "}
+            <a href={statusMsg} target="_blank" rel="noopener noreferrer" className="font-bold underline">
+              לחצו כאן לשליחה ידנית
+            </a>
+          </p>
         </div>
       )}
     </form>
