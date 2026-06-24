@@ -65,8 +65,12 @@ const Hero = () => {
             כשמגיע הרגע להגיד תודה על כל השנים
           </h1>
 
+          <p className="text-[12px] sm:text-sm font-light text-white/75 leading-relaxed mt-3 mb-1 text-right whitespace-pre-line">
+            {text.trim()}
+          </p>
+
           {/* Mobile CTA */}
-          <div className="flex flex-wrap gap-3 mt-4">
+          <div className="flex flex-wrap gap-3 mt-3">
             <a
               href="#contact"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium text-sm bg-[#c5474a] text-white hover:-translate-y-1 transition-transform duration-200"
