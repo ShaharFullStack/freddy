@@ -23,8 +23,47 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative w-full h-dvh bg-[#241f1c] overflow-hidden"
+      className="relative w-full h-dvh overflow-hidden"
+      style={{ background: "#1a1613" }}
     >
+      {/* ── Decorative background layers ─────────────────────────── */}
+
+      {/* Warm amber glow – bottom-left (behind Freddy) */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 55% at 18% 85%, rgba(180,100,30,0.28) 0%, transparent 65%)",
+        }}
+      />
+
+      {/* Subtle warm highlight – top centre-right */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 50% 40% at 75% 5%, rgba(150,120,80,0.10) 0%, transparent 70%)",
+        }}
+      />
+
+      {/* Edge vignette – deepens corners */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 90% 90% at 50% 50%, transparent 45%, rgba(8,6,5,0.65) 100%)",
+        }}
+      />
+
+      {/* Noise texture overlay – adds grain for a cinematic feel */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none opacity-[0.035]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+          backgroundSize: "128px 128px",
+        }}
+      />
+
       {/* ── Background Image ─────────────────────────────────────
           Mobile : absolute, bottom 58% of the section
           Desktop: absolute, left half, full height              */}
