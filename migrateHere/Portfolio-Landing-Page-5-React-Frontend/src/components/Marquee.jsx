@@ -152,7 +152,7 @@ const Marquee = ({
       },
     });
     return () => tl.kill();
-  }, [items, reverse]);
+  }, [items, reverse, repeated.length]);
   return (
     <div
       ref={containerRef}

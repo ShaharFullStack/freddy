@@ -39,67 +39,78 @@ const Hero = () => {
       </div>
 
       {/* ── Text Content ─────────────────────────────────────────
-          Mobile : absolute top 42%, overflow-hidden (clips safely)
+          Mobile : absolute top 42%
           Desktop: absolute right 55%, full height               */}
       <div
         className={[
           "absolute z-10 text-white pointer-events-none",
           /* mobile: span the top 42% */
           "top-0 left-0 right-0 h-[42%]",
-          /* desktop: right column, full height */
+          /* desktop: right column, full height – flex-col so CTA sits at bottom */
           "lg:left-auto lg:right-0 lg:w-[55%] lg:h-full",
-          /* layout */
-          "flex flex-col justify-center overflow-hidden",
+          "flex flex-col lg:justify-between",
           /* padding */
           "pt-14 sm:pt-16 lg:pt-0 px-2 sm:px-6 lg:pl-0 lg:pr-16",
         ].join(" ")}
       >
-        <div className="pointer-events-auto">
-          {/* On mobile we render a compact inline title instead of the full
-              AnimatedHeaderSection (which is too tall for 42% of screen).
-              On lg+ the full animated section is shown.                    */}
+        {/* ── Mobile-only compact header ── */}
+        <div className="pointer-events-auto lg:hidden px-6 flex flex-col justify-center h-full">
+          <p className="text-[10px] font-light tracking-[0.4rem] uppercase text-white/60 mb-3">
+            ברק הפקות · פרדי ברק
+          </p>
+          <h1
+            className="text-[26px] sm:text-[36px] leading-[1.15] uppercase text-white"
+            style={{ textShadow: "0 0 10px rgba(0,0,0,0.8)" }}
+          >
+            כשמגיע הרגע להגיד תודה על כל השנים
+          </h1>
 
-          {/* ── Mobile-only compact header ── */}
-          <div className="lg:hidden px-6">
-            <p className="text-[10px] font-light tracking-[0.4rem] uppercase text-white/60 mb-3">
-              ברק הפקות · פרדי ברק
-            </p>
-            <h1
-              className="text-[26px] sm:text-[36px] leading-[1.15] uppercase text-white"
-              style={{ textShadow: "0 0 10px rgba(0,0,0,0.8)" }}
-            >
-              כשמגיע הרגע להגיד תודה על כל השנים
-            </h1>
-          </div>
-
-          {/* ── Desktop full animated header ── */}
-          <div className="hidden lg:block">
-            <AnimatedHeaderSection
-              subTitle={"ברק הפקות · פרדי ברק"}
-              title={"כשמגיע הרגע להגיד תודה על כל השנים"}
-              text={text}
-              textColor={"text-white"}
-            />
-          </div>
-
-          {/* ── CTA buttons (all sizes) ── */}
-          <div className="flex flex-wrap gap-3 px-6 sm:px-10 mt-4 lg:mt-6">
+          {/* Mobile CTA */}
+          <div className="flex flex-wrap gap-3 mt-4">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 lg:px-6 lg:py-3 rounded-full font-medium text-sm bg-[#c5474a] text-white hover:-translate-y-1 transition-transform duration-200"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium text-sm bg-[#c5474a] text-white hover:-translate-y-1 transition-transform duration-200"
               style={{ boxShadow: "0 14px 30px -12px rgba(197,71,74,0.8)" }}
             >
               לקבלת הצעת מחיר
             </a>
             <a
               href="#process"
-              className="inline-flex items-center gap-2 px-5 py-2.5 lg:px-6 lg:py-3 rounded-full font-medium text-sm bg-white/10 text-white border border-white/50 backdrop-blur-sm hover:bg-white hover:text-[#241f1c] transition-all duration-200"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium text-sm bg-white/10 text-white border border-white/50 backdrop-blur-sm hover:bg-white hover:text-[#241f1c] transition-all duration-200"
             >
               איך זה עובד
             </a>
           </div>
         </div>
+
+        {/* ── Desktop: animated header (grows to fill space) ── */}
+        <div className="pointer-events-auto hidden lg:block lg:flex-1 lg:flex lg:items-center">
+          <AnimatedHeaderSection
+            subTitle={"ברק הפקות · פרדי ברק"}
+            title={"כשמגיע הרגע להגיד תודה על כל השנים"}
+            text={text}
+            textColor={"text-white"}
+          />
+        </div>
+
+        {/* ── Desktop CTA – outside the animated block, pinned to bottom ── */}
+        <div className="pointer-events-auto hidden lg:flex flex-wrap gap-3 px-6 sm:px-10 pb-12">
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-sm bg-[#c5474a] text-white hover:-translate-y-1 transition-transform duration-200"
+            style={{ boxShadow: "0 14px 30px -12px rgba(197,71,74,0.8)" }}
+          >
+            לקבלת הצעת מחיר
+          </a>
+          <a
+            href="#process"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-sm bg-white/10 text-white border border-white/50 backdrop-blur-sm hover:bg-white hover:text-[#241f1c] transition-all duration-200"
+          >
+            איך זה עובד
+          </a>
+        </div>
       </div>
+
     </section>
   );
 };

@@ -7,11 +7,11 @@ import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
 import { AnimatedTextLines } from "../components/AnimatedTextLines";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { freddy2Img } from "../constants";
+import { freddyImg } from "../constants";
 
 const About = () => {
   const text = `מעל 20 שנה בהפקת אירועים משמעותיים
-ייצור תוכן, תחקיר ועריכה ברמה גבוהה
+הפקת תוכן, תחקיר ועריכה ברמה גבוהה
 הנחיה חמה ושירה שמחברת את כולם`;
 
   const aboutText = `מעל 20 שנה אני מלווה ארגונים, מוסדות, רשויות וחברות ביצירת תוכן לאירועים משמעותיים.
@@ -56,7 +56,7 @@ const About = () => {
       <div className="flex flex-col items-center justify-between gap-16 px-10 pb-16 text-xl font-light tracking-wide lg:flex-row md:text-2xl lg:text-3xl text-[#fcf9ea]/60">
         <img
           ref={imgRef}
-          src={freddy2Img}
+          src={freddyImg}
           alt="פרדי ברק – מנחה ומפיק אירועים"
           className="w-md rounded-3xl object-cover"
         />
