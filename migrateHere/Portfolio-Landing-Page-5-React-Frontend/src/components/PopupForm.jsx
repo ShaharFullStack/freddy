@@ -86,10 +86,10 @@ const PopupForm = () => {
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
-        <LeadForm 
-          title="שניה לפני שממשיכים..." 
-          subtitle="השאירו פרטים ונחזור אליכם עם כל המידע והצעת מחיר מותאמת." 
-          className="shadow-2xl !pt-12" 
+        <LeadForm
+          title="שניה לפני שממשיכים..."
+          subtitle="השאירו פרטים ונחזור אליכם." 
+          className="shadow-2xl !pt-12"
         />
       </div>
     </div>
