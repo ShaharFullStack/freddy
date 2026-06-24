@@ -123,7 +123,7 @@ export default function Gallery() {
       <div
         ref={previewRef}
         className="hidden md:block fixed pointer-events-none z-50 w-56 h-36 rounded-xl overflow-hidden shadow-2xl opacity-0"
-        style={{ transform: 'translate(-50%, -120%) scale(0.85)', top: 0, left: 0 }}
+        style={{ transform: 'translate(-50%, -120%) scale(0.55)', top: 0, left: 0 }}
       >
         {hoveredIdx !== null && (
           <img

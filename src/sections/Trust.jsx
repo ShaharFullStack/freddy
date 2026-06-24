@@ -36,30 +36,30 @@ export default function Trust() {
     <section
       ref={sectionRef}
       id="trust"
-      className="bg-[var(--color-dark)] text-[var(--color-primary)] py-20 md:py-28 overflow-hidden"
+      className="bg-dark text-primary py-20 md:py-28 overflow-hidden"
     >
       <div className="w-full max-w-[1180px] mx-auto px-5 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Text */}
           <div ref={textRef}>
-            <p className="text-[0.72rem] font-bold tracking-[3px] text-[var(--color-gold)] uppercase mb-3">
+            <p className="text-[0.72rem] font-bold tracking-[3px] text-gold uppercase mb-3">
               למה דווקא פרדי
             </p>
             <h2
-              className="font-rubik font-black leading-[1.12] tracking-tight text-[var(--color-primary)] mb-6"
+              className="font-rubik font-black leading-[1.12] tracking-tight text-primary mb-6"
               style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}
             >
               ניסיון של מעל 20 שנה, ויד בטוחה ברגעים הכי רגישים
             </h2>
-            <p className="text-[var(--color-sage)] leading-[1.8] mb-5">
+            <p className="text-sage leading-[1.8] mb-5">
               אירוע פרישה הוא לא עוד מסיבה. הוא רגע רגיש שמייצג שנים של עבודה ושייכות. הניסיון מאפשר לי לקרוא נכון את החדר, לדייק את התוכן ולנהל את הערב בביטחון מלא.
             </p>
-            <p className="text-[var(--color-sage)] leading-[1.8] mb-8">
+            <p className="text-sage leading-[1.8] mb-8">
               בשנים 2016–2018 לקחתי חלק כמראיין ומתעד בפרויקט מטעם ההסתדרות הציונית העולמית בשיתוף משרד ראש הממשלה. מאות ראיונות שנשמרים בספרייה הלאומית ע"ש שפילברג.
             </p>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[var(--color-gold)] text-[var(--color-dark)] font-bold text-[0.95rem] hover:bg-[var(--color-gold-light)] transition-colors duration-200"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gold text-dark font-bold text-[0.95rem] hover:bg-gold-light transition-colors duration-200"
             >
               לשיחת ייעוץ חינם
             </a>
@@ -78,7 +78,7 @@ export default function Trust() {
               style={{ objectPosition: 'center top' }}
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent" />
           </div>
         </div>
       </div>

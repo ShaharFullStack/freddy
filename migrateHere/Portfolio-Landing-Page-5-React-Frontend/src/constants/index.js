@@ -5,18 +5,16 @@
  */
 
 // Image imports – paths from src/constants/ up to FreddyLanding/assets/images/
-import image2Img from '../../../../assets/images/image2.png'
-import freddy3Img from '../../../../assets/images/freddy3.jpg'
-import freddy9Img from '../../../../assets/images/freddy9.png'
-import freddy7Img from '../../../../assets/images/freddy7.jpg'
-import freddy5Img from '../../../../assets/images/freddy5.jpg'
-import freddy2Img from '../../../../assets/images/freddy2.png'
 import freddyImg from '../../../../assets/images/freddy.png'
+import freddy2Img from '../../../../assets/images/freddy2.png'
+import freddy3Img from '../../../../assets/images/freddy3.jpg'
+import freddy5Img from '../../../../assets/images/freddy5.jpg'
+import freddy7Img from '../../../../assets/images/freddy7.jpg'
+import freddy9Img from '../../../../assets/images/freddy9.png'
+import image2Img from '../../../../assets/images/image2.png'
 import logoImg from '../../../../assets/images/logo.png'
-import image1Img from '../../../../assets/images/image1.png'
-import freddy8Img from '../../../../assets/images/freddy8.jpg'
 
-export { freddy5Img, freddy2Img, freddyImg, logoImg }
+export { freddy2Img, freddy5Img, freddyImg, logoImg }
 
 /** Event types for the Services (stacked cards) section */
 export const eventsData = [

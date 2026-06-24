@@ -57,7 +57,7 @@ export default function Hero() {
     <header
       ref={sectionRef}
       id="top"
-      className="relative min-h-[100svh] flex items-end overflow-hidden text-white"
+      className="relative min-h-svh flex items-end overflow-hidden text-white"
     >
       {/* Background image */}
       <div className="absolute inset-0 overflow-hidden">
@@ -71,7 +71,7 @@ export default function Hero() {
           fetchpriority="high"
         />
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/88" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/50 via-black/20 to-black/88" />
         {/* Three.js particle globe – desktop only */}
         <div className="hidden md:block absolute inset-0">
           <ThreeGlobe />
@@ -82,7 +82,7 @@ export default function Hero() {
       <div className="relative z-10 w-full max-w-[1180px] mx-auto px-5 md:px-8 pb-16 pt-32">
         {/* Eyebrow */}
         <div className="inline-flex items-center gap-2 text-xs font-medium tracking-[2px] bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
-          <span className="w-2 h-2 rounded-full bg-[var(--color-gold)] animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
           ברק הפקות · פרדי ברק
         </div>
 
@@ -92,7 +92,7 @@ export default function Hero() {
           style={{ fontSize: 'clamp(2.4rem, 9vw, 6rem)' }}
         >
           כשמגיע הרגע<br />
-          להגיד <span className="text-[var(--color-gold)]">תודה</span><br />
+          להגיד <span className="text-gold">תודה</span><br />
           על כל השנים
         </h1>
 
@@ -108,13 +108,13 @@ export default function Hero() {
         <div ref={ctaRef} className="flex gap-3 flex-wrap">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-[var(--color-gold)] text-[var(--color-dark)] font-bold text-[0.97rem] hover:bg-[var(--color-gold-light)] transition-colors duration-200 shadow-[0_14px_30px_-10px_rgba(201,162,78,0.6)]"
+            className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-gold text-dark font-bold text-[0.97rem] hover:bg-gold-light transition-colors duration-200 shadow-[0_14px_30px_-10px_rgba(201,162,78,0.6)]"
           >
             לקבלת הצעת מחיר
           </a>
           <a
             href="#process"
-            className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/40 text-white font-medium text-[0.97rem] hover:bg-white hover:text-[var(--color-dark)] transition-all duration-200"
+            className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/40 text-white font-medium text-[0.97rem] hover:bg-white hover:text-dark transition-all duration-200"
           >
             איך זה עובד
           </a>
@@ -128,7 +128,7 @@ export default function Hero() {
             { n: '100%', l: 'שביעות רצון' },
           ].map(s => (
             <div key={s.l}>
-              <div className="font-rubik font-black text-[var(--color-gold)] leading-none" style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)' }}>
+              <div className="font-rubik font-black text-gold leading-none" style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)' }}>
                 {s.n}
               </div>
               <div className="text-white/65 text-xs mt-1 tracking-wider">{s.l}</div>

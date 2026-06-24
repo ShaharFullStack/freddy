@@ -21,7 +21,7 @@ const Hero = () => {
         <img
           src={freddy5Img}
           alt="פרדי ברק מנחה אירוע פרישה"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-half object-cover"
           loading="eager"
           fetchPriority="high"
         />
@@ -29,7 +29,7 @@ const Hero = () => {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(36,31,28,0.3) 0%, rgba(36,31,28,0.15) 40%, rgba(36,31,28,0.85) 100%)",
+              "linear-gradient(180deg, rgba(36,31,28,0.1) 0%, rgba(36,31,28,0.35) 40%, rgba(36,31,28,0.85) 100%)",
           }}
         />
       </figure>
@@ -38,27 +38,15 @@ const Hero = () => {
       <div className="relative z-10 text-white pb-12">
         <AnimatedHeaderSection
           subTitle={"ברק הפקות · פרדי ברק"}
-          title={"חיים שכאלה"}
+          title={"כשמגיע הרגע להגיד תודה על כל השנים"}
           text={text}
           textColor={"text-white"}
         />
 
-        {/* Stats row */}
-        <div className="flex gap-10 px-10 mt-4 flex-wrap">
-          {[
-            { n: "20+", l: "שנות ניסיון" },
-            { n: "300+", l: "אירועים" },
-            { n: "100%", l: "לקוחות מרוצים" },
-          ].map(({ n, l }) => (
-            <div key={l}>
-              <div className="font-bold text-3xl text-[#ffa4a4]" style={{ fontFamily: "Rubik, sans-serif" }}>{n}</div>
-              <div className="text-sm text-white/70 mt-1">{l}</div>
-            </div>
-          ))}
-        </div>
+
 
         {/* CTA buttons */}
-        <div className="flex gap-4 px-10 mt-8 flex-wrap">
+        <div className="flex gap-8 px-20 flex-wrap">
           <a
             href="#contact"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-sm bg-[#c5474a] text-white hover:-translate-y-1 transition-transform duration-200"

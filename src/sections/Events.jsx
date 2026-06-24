@@ -29,8 +29,8 @@ function EventCard({ ev, index }) {
     return () => ctx.revert()
   }, [index])
 
-  const handleMouseEnter = () => gsap.to(imgRef.current, { scale: 1.05, duration: 0.55, ease: 'power2.out' })
-  const handleMouseLeave = () => gsap.to(imgRef.current, { scale: 1, duration: 0.55, ease: 'power2.out' })
+  const handleMouseEnter = () => gsap.to(imgRef.current, { scale: 0.5, duration: 0.55, ease: 'power2.out' })
+  const handleMouseLeave = () => gsap.to(imgRef.current, { scale: 0.5, duration: 0.55, ease: 'power2.out' })
 
   return (
     <div

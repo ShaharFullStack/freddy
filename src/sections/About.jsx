@@ -50,31 +50,31 @@ export default function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="bg-[var(--color-cream)] text-[var(--color-ink)] round-top py-20 md:py-28"
+      className="bg-cream text-ink round-top py-20 md:py-28"
     >
       <div className="w-full max-w-[1180px] mx-auto px-5 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Text */}
           <div ref={textRef}>
-            <p className="text-[0.72rem] font-bold tracking-[3px] text-[var(--color-teal)] uppercase mb-3">
+            <p className="text-[0.72rem] font-bold tracking-[3px] text-teal uppercase mb-3">
               מה זה "חיים שכאלה"
             </p>
             <h2
-              className="font-rubik font-black leading-[1.12] tracking-tight text-[var(--color-ink)] mb-6"
+              className="font-rubik font-black leading-[1.12] tracking-tight text-ink mb-6"
               style={{ fontSize: 'clamp(1.8rem, 4.5vw, 3rem)' }}
             >
               אירוע שבו כל המשתתפים מרגישים כמו משפחה
             </h2>
-            <p className="text-[var(--color-ink)]/70 leading-[1.8] mb-4">
+            <p className="text-ink/70 leading-[1.8] mb-4">
               מעל 20 שנה אני מלווה ארגונים, מוסדות, רשויות וחברות ביצירת תוכן לאירועים משמעותיים. ב"חיים שכאלה" אני{' '}
-              <strong className="text-[var(--color-ink)] font-bold">מפיק ומנחה</strong> אירועי פרישה, קידום בתפקיד וימי הוקרה בצורה חמה, אישית ומכובדת.
+              <strong className="text-ink font-bold">מפיק ומנחה</strong> אירועי פרישה, קידום בתפקיד וימי הוקרה בצורה חמה, אישית ומכובדת.
             </p>
-            <p className="text-[var(--color-ink)]/70 leading-[1.8] mb-8">
+            <p className="text-ink/70 leading-[1.8] mb-8">
               בכל אירוע משולבים סיפורים אישיים מהלב, וידאו מרגש, מצגת ושירי ארץ ישראל בשירה בציבור. התוצאה היא חוויה בלתי נשכחת שמעניקה כבוד לעובד.
             </p>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[var(--color-ink)] text-[var(--color-cream)] font-bold text-[0.95rem] hover:bg-[var(--color-rose)] transition-colors duration-200"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-ink text-cream font-bold text-[0.95rem] hover:bg-rose transition-colors duration-200"
             >
               לשיחת ייעוץ חינם
             </a>
@@ -93,7 +93,7 @@ export default function About() {
               style={{ objectPosition: 'center 45%' }}
               loading="lazy"
             />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent pt-16 pb-5 px-6">
+            <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/75 to-transparent pt-16 pb-5 px-6">
               <p className="text-white font-rubik font-bold text-base leading-snug">
                 הנחיה חמה ומקצועית, מהרגע הראשון ועד אחרון השירים
               </p>

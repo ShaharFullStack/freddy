@@ -36,7 +36,7 @@ const Works = () => {
     gsap.from("#gallery-item", {
       y: 100,
       opacity: 0,
-      delay: 0.5,
+      delay: 0.2,
       duration: 1,
       stagger: 0.3,
       ease: "back.out",
@@ -57,7 +57,7 @@ const Works = () => {
       { clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" },
       { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)", duration: 0.15, ease: "power2.out" }
     );
-    gsap.to(previewRef.current, { opacity: 1, scale: 1, duration: 0.3, ease: "power2.out" });
+    gsap.to(previewRef.current, { opacity: 1, scale: 0.55, duration: 0.5, ease: "power2.out" });
   };
 
   const handleMouseLeave = (index) => {

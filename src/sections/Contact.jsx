@@ -111,22 +111,22 @@ export default function Contact() {
     <section
       ref={sectionRef}
       id="contact"
-      className="bg-[var(--color-dark)] text-[var(--color-primary)] py-20 md:py-28"
+      className="bg-dark text-primary py-20 md:py-28"
     >
       <div className="w-full max-w-[1180px] mx-auto px-5 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start">
           {/* Info */}
           <div ref={infoRef}>
-            <p className="text-[0.72rem] font-bold tracking-[3px] text-[var(--color-gold)] uppercase mb-3">
+            <p className="text-[0.72rem] font-bold tracking-[3px] text-gold uppercase mb-3">
               בואו נדבר
             </p>
             <h2
-              className="font-rubik font-black leading-[1.12] tracking-tight text-[var(--color-primary)] mb-5"
+              className="font-rubik font-black leading-[1.12] tracking-tight text-primary mb-5"
               style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}
             >
               פרדי ישמח לבנות לכם את הערב הבא
             </h2>
-            <p className="text-[var(--color-sage)] leading-relaxed mb-8">
+            <p className="text-sage leading-relaxed mb-8">
               השאירו פרטים ופרדי יחזור אליכם עם כל המידע והצעת מחיר מותאמת. אפשר גם פשוט להרים טלפון או לכתוב בוואטסאפ.
             </p>
 
@@ -141,9 +141,9 @@ export default function Contact() {
                   href={item.href}
                   target={item.external ? '_blank' : undefined}
                   rel={item.external ? 'noopener noreferrer' : undefined}
-                  className="flex items-center gap-4 py-4 border-b border-white/10 text-[0.97rem] hover:text-[var(--color-gold)] transition-colors duration-200"
+                  className="flex items-center gap-4 py-4 border-b border-white/10 text-[0.97rem] hover:text-gold transition-colors duration-200"
                 >
-                  <span className="w-10 h-10 rounded-xl bg-white/6 flex items-center justify-center text-lg flex-shrink-0">
+                  <span className="w-10 h-10 rounded-xl bg-white/6 flex items-center justify-center text-lg shrink-0">
                     {item.icon}
                   </span>
                   {item.label}
@@ -157,10 +157,10 @@ export default function Contact() {
             ref={formRef}
             onSubmit={handleSubmit}
             noValidate
-            className="bg-[var(--color-cream)] text-[var(--color-ink)] rounded-3xl p-7 md:p-9"
+            className="bg-cream text-ink rounded-3xl p-7 md:p-9"
           >
-            <h3 className="font-rubik font-bold text-xl text-[var(--color-ink)] mb-1">קבלת הצעת מחיר</h3>
-            <p className="text-[var(--color-ink)]/55 text-sm mb-6">פרדי יחזור אליכם בהקדם עם כל הפרטים.</p>
+            <h3 className="font-rubik font-bold text-xl text-ink mb-1">קבלת הצעת מחיר</h3>
+            <p className="text-ink/55 text-sm mb-6">פרדי יחזור אליכם בהקדם עם כל הפרטים.</p>
 
             {[
               { id: 'name', label: 'שם מלא', type: 'text', placeholder: 'שם הפונה', required: true, autoComplete: 'name' },
@@ -181,7 +181,7 @@ export default function Contact() {
                   onChange={handleChange}
                   className={inputClass(f.id)}
                 />
-                {errors[f.id] && <span className="text-[var(--color-rose)] text-xs mt-1 block">{errors[f.id]}</span>}
+                {errors[f.id] && <span className="text-rose text-xs mt-1 block">{errors[f.id]}</span>}
               </div>
             ))}
 
@@ -201,7 +201,7 @@ export default function Contact() {
                 <option value="הוקרה">הוקרה</option>
                 <option value="אחר">אחר</option>
               </select>
-              {errors.evtype && <span className="text-[var(--color-rose)] text-xs mt-1 block">{errors.evtype}</span>}
+              {errors.evtype && <span className="text-rose text-xs mt-1 block">{errors.evtype}</span>}
             </div>
 
             <div className="mb-5">
@@ -215,24 +215,24 @@ export default function Contact() {
                 onChange={handleChange}
                 className={`${inputClass('msg')} resize-y min-h-[78px]`}
               />
-              {errors.msg && <span className="text-[var(--color-rose)] text-xs mt-1 block">{errors.msg}</span>}
+              {errors.msg && <span className="text-rose text-xs mt-1 block">{errors.msg}</span>}
             </div>
 
             <button
               type="submit"
               disabled={submitting}
-              className="w-full py-4 rounded-full bg-[var(--color-rose)] text-white font-bold text-[1rem] hover:opacity-90 transition-opacity duration-200 disabled:opacity-60 shadow-[0_14px_30px_-10px_rgba(197,71,74,0.6)]"
+              className="w-full py-4 rounded-full bg-rose text-white font-bold text-[1rem] hover:opacity-90 transition-opacity duration-200 disabled:opacity-60 shadow-[0_14px_30px_-10px_rgba(197,71,74,0.6)]"
             >
               {submitting ? 'שולח...' : 'שליחת הפרטים'}
             </button>
 
             {status === 'success' && (
-              <div className="mt-4 p-4 rounded-xl bg-[var(--color-teal)]/20 text-[var(--color-teal)] text-sm font-medium text-center">
+              <div className="mt-4 p-4 rounded-xl bg-teal/20 text-teal text-sm font-medium text-center">
                 תודה! הפרטים התקבלו ופרדי יחזור אליכם בהקדם.
               </div>
             )}
             {status === 'error' && (
-              <div className="mt-4 p-4 rounded-xl bg-[var(--color-rose)]/10 text-[var(--color-rose)] text-sm font-medium text-center">
+              <div className="mt-4 p-4 rounded-xl bg-rose/10 text-rose text-sm font-medium text-center">
                 לא הצלחנו לשלוח את הפרטים.{' '}
                 <a href={getWaUrl()} target="_blank" rel="noopener noreferrer" className="underline font-bold">
                   שלחו בוואטסאפ
