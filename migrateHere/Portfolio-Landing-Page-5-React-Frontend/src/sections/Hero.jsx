@@ -21,7 +21,7 @@ const Hero = () => {
         <img
           src={freddy5Img}
           alt="פרדי ברק מנחה אירוע פרישה"
-          className="w-full h-half object-cover"
+          className="w-full h-full object-cover object-top"
           loading="eager"
           fetchPriority="high"
         />
@@ -46,7 +46,7 @@ const Hero = () => {
 
 
         {/* CTA buttons */}
-        <div className="flex gap-8 px-20 flex-wrap">
+        <div className="flex gap-4 px-6 sm:px-20 flex-wrap">
           <a
             href="#contact"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-sm bg-[#c5474a] text-white hover:-translate-y-1 transition-transform duration-200"
