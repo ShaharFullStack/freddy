@@ -84,7 +84,7 @@ const Hero = () => {
         </div>
 
         {/* ── Desktop: animated header (grows to fill space) ── */}
-        <div className="pointer-events-auto hidden lg:block lg:flex-1 lg:flex lg:items-center">
+        <div className="pointer-events-auto hidden lg:block lg:flex-1 lg:flex lg:items-start min-h-0 overflow-hidden">
           <AnimatedHeaderSection
             subTitle={"ברק הפקות · פרדי ברק"}
             title={"כשמגיע הרגע להגיד תודה על כל השנים"}
@@ -94,7 +94,7 @@ const Hero = () => {
         </div>
 
         {/* ── Desktop CTA – outside the animated block, pinned to bottom ── */}
-        <div className="pointer-events-auto hidden lg:flex flex-wrap gap-3 px-6 sm:px-10 pb-12">
+        <div className="pointer-events-auto hidden lg:flex flex-wrap gap-3 px-6 sm:px-10 pb-8">
           <a
             href="#contact"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-sm bg-[#c5474a] text-white hover:-translate-y-1 transition-transform duration-200"
