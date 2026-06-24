@@ -25,7 +25,7 @@ const Works = () => {
 
   const text = `רגעים בלתי נשכחים מאירועים
 שהשאירו חותם אמיתי
-על אנשים ועל ארגונים שלמים`;
+על אנשים ועל ארגונים`;
 
   const mouse = useRef({ x: 0, y: 0 });
   const moveX = useRef(null);
